@@ -2,7 +2,7 @@ export const Database = {
 
     Alunos : [
         {
-            id: "01",
+            id: 0,
             nome:"Filipe Alves",
             email: "filipe@resilia.com",
             telefone: "81996436651",
@@ -10,7 +10,7 @@ export const Database = {
             id_curso: "18"
         },
         {
-            id: "02",
+            id: 1,
             nome:"Filipe Quirino",
             email: "quirino@resilia.com",
             telefone: "81996436651",

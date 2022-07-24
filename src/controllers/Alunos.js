@@ -13,7 +13,7 @@ class Alunos {
 
         app.post("/alunos",(req, res) =>{
             
-            const ehValido = ValidacoesServices.validaNome(req.body.nome)
+            const ehValido = ValidacoesServices.ehValido(...Object.values(req.body))
             
             if(!ehValido){
                 //const aluno = new AlunoModel(10, "filipe")
@@ -22,6 +22,11 @@ class Alunos {
             }else{
              res.status(400).json({Erro:"Erro"})
             }
+        })
+        app.put("/alunos/:id",(req, res) => {
+            const aluno = new AlunoModel(...Object.values(req.body))
+            
+            res.status(201).json(DatabaseMetodos.atualizarPorId(...Object.values(req.params.id, aluno)))
         })
     }
 }

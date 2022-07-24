@@ -1,6 +1,6 @@
 import express  from "express";
 import * as dotenv from "dotenv";
-
+import Alunos from "./src/controllers/Alunos.js"
 dotenv.config()
 
 const port = process.env.PORT || 3000;
@@ -11,3 +11,5 @@ app.listen(port, () => {
 })
 
 app.use(express.json())
+
+Alunos.rotas(app)

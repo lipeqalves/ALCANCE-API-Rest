@@ -11,14 +11,14 @@ const aluno = {
 }
 
 try {
-    await DAO.ativaChavesEstrangeiras() 
+     DAO.ativaChavesEstrangeiras() 
     
     const alunos = await DatabaseAlunoMetodos.createTableAlunos()
     console.log(alunos)
 
-    const criada = await DatabaseAlunoMetodos.adicionaAluno(aluno)
-    console.log(criada)
+    const alunoZero = await DatabaseAlunoMetodos.adicionaAluno(aluno)
+    console.log(alunoZero)
 
 }catch (e){
-    console.log(e)
+    console.log(e.message)
 }

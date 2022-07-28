@@ -9,23 +9,23 @@ class Alunos {
     static rotas(app){
         app.get("/alunos", async(req, res) =>{
             
-                const response = await DatabaseAlunoMetodos.listarAlunos()
-                res.status(200).json(response)
+            const response = await DatabaseAlunoMetodos.listarAlunos()
+            res.status(200).json(response)
         })
 
         app.post("/alunos",async (req, res) =>{
             
-            const ehValido = ValidacoesServices.ehValido(...Object.values(req.body))
+            // const ehValido = ValidacoesServices.ehValido(...Object.values(req.body))
             
-            if(!ehValido){
+            // if(!ehValido){
                 
                 const aluno = new AlunoModel(...Object.values(req.body))
                 const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
                 res.status(201).json(response)
 
-            }else{
-             res.status(400).json({Erro:"Erro"})
-            }
+            // }else{
+            //  res.status(400).json({Erro:"Erro"})
+            // }
         })
     //     app.put("/alunos/:id",(req, res) => {
     //         const aluno = new AlunoModel(...Object.values(req.body))

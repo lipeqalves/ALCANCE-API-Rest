@@ -1,7 +1,7 @@
 import Database from "../infra/Database.js";
 
 class DAO{
-    static async ativaChavesEstrangeiras(){
+    static ativaChavesEstrangeiras(){
         const query = 'PRAGMA foreign_keys = ON';
 
         Database.run(query, error => {
@@ -49,19 +49,19 @@ class DAO{
     //     })
     // }
 
-    // static inserir(entidade, query){
-    //     const body = Object.values(entidade)
+    static inserir(entidade, query){
+        const body = Object.values(entidade)
 
-    //     return new Promise((resolve, reject)=>{
-    //         Database.run(query, [...body], (e)=>{
-    //             if(e){
-    //                 reject(e.message)
-    //             } else {
-    //                 resolve({error: false, message: "Cadastrado com sucesso!"})
-    //             }
-    //         })
-    //     })
-    // }
+        return new Promise((resolve, reject)=>{
+            Database.run(query, [...body], (e)=>{
+                if(e){
+                    reject(e.message)
+                } else {
+                    resolve({error: false, message: "Cadastrado com sucesso!"})
+                }
+            })
+        })
+    }
 }
 
 export default DAO

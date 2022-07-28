@@ -3,7 +3,7 @@ import DAO  from "./DAO.js";
 class DatabaseAlunoMetodos extends DAO{
 
 static async createTableAlunos(){
-    try{
+ 
 
         const query = 
         
@@ -13,15 +13,13 @@ static async createTableAlunos(){
             email  VARCHAR,
             telefone VARCHAR,
             turma VARCHAR,
-            curso VARCHAR,
+            curso VARCHAR
     
         )`
     
         const response = await this.createTable(query);
         return response
-    }catch(e){
-        console.log(e.message)
-    }
+
 }
 
 static async listarAlunos(){

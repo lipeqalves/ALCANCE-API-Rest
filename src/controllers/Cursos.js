@@ -1,3 +1,4 @@
+import CursosModel from "../models/CursosModel.js"
 import ValidacoesServices from "../services/ValidacoesServices.js"
 
 class Cursos{

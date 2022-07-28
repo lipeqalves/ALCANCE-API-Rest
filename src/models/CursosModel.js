@@ -1,8 +1,8 @@
-class CoursesModel {
-    constructor(name, time){
-        this.name = name,
-        this.time = time
+class CursosModel {
+    constructor(nome, duracao,){
+        this.nome = nome,
+        this.duracao = duracao
     }
 }
 
-export default CoursesModel
+export default CursosModel

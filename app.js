@@ -1,6 +1,7 @@
 import express  from "express";
 import * as dotenv from "dotenv";
 import Alunos from "./src/controllers/Alunos.js"
+import Courses from "./src/controllers/Courses.js"
 dotenv.config()
 
 const port = process.env.PORT || 3000;
@@ -13,3 +14,4 @@ app.listen(port, () => {
 app.use(express.json())
 
 Alunos.rotas(app)
+Courses.route(app)

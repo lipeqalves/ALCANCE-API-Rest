@@ -1,11 +1,11 @@
 class AlunoModel {
-    constructor(id, nome, email, telefone, turma, id_curso){
-        this.id = id,
+    constructor(nome, email, telefone, turma, curso){
+        
         this.nome = nome,
         this.email = email,
         this.telefone = telefone,
         this.turma = turma,
-        this.id_curso = id_curso 
+        this.curso = curso 
     }
 }
 

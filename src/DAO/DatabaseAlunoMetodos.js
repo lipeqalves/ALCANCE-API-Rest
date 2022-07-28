@@ -1,6 +1,6 @@
 import { Database } from "../infra/Database.js";
 
-class DatabaseMetodos{
+class DatabaseAlunoMetodos{
     static listarBanco(){
         return Database;
     }

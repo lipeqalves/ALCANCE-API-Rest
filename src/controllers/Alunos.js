@@ -1,6 +1,6 @@
 import AlunoModel from "../models/AlunoModel.js"
 import ValidacoesServices from "../services/ValidacoesServices.js"
-import DatabaseMetodos from "../utils/DatabaseMetodos.js"
+import DatabaseMetodos from "../DAO/DatabaseAlunoMetodos.js"
 
 
 class Alunos {

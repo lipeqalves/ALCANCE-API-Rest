@@ -5,7 +5,7 @@ class AlunoModel {
         this.email = email,
         this.telefone = telefone,
         this.turma = turma,
-        this.id_curso = id_curso 
+        this.curso = curso 
     }
 }
 

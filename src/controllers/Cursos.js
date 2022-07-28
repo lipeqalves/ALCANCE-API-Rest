@@ -1,12 +1,11 @@
-import DatabaseMetodos from "../utils/DatabaseMetodos.js"
 import ValidacoesServices from "../services/ValidacoesServices.js"
 
-class Courses{
-    static route(app){
+class Cursos{
+    static rotas(app){
         app.get("/courses", (req, res) =>{
             res.send("check")
         })
     }
 }
 
-export default Courses
+export default Cursos

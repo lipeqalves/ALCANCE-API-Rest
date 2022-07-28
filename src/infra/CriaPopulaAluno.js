@@ -1,7 +1,6 @@
-import DatabaseMetodos from "../DAO/DatabaseAlunoMetodos.js";
+import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js";
 
 const aluno = {
-    id:1,
     nome:"Aluno de Teste",
     email: "aluno@test.br" ,
     telefone: "8199999999",
@@ -10,10 +9,12 @@ const aluno = {
 }
 
 try {
-    const tabela = await DatabaseMetodos.createTableluno()
+    const tabela = await DatabaseMetodos.createTableAluno()
     console.log(tabela)
+
     const criada = await DatabaseMetodos.inserirAluno(aluno)
     console.log(criada)
-}catch (error){
+
+}catch (e){
     console.log(e)
 }

@@ -19,7 +19,7 @@ class DAO {
                 if (e) {
                     reject(e.message)
                 } else {
-                    resolve("Tabela criada com sucesso!")
+                    resolve("Criada com sucesso!")
                 }
             })
         })

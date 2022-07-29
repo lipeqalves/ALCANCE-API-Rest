@@ -1,17 +1,51 @@
-class ValidacoesServices{
-    static validaNome(nome){
-        return nome.length >= 3// /\b[A-Za-zÀ-ú][A-Za-zÀ-ú]+,?\s[A-Za-zÀ-ú][A-Za-zÀ-ú]{2,19}\b/gi;
-    } 
-    // static validaEmail(email){
-    //     return email == /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+class ValidacoesService {
+    /**
+     * 
+     * @param {string} nome 
+     * @returns boolean
+     */
+    static validaNome(nome) {
+        return nome.length >= 3
+    }
+
+    // /**
+    //  * 
+    //  * @param {string} telefone 
+    //  * @returns boolean
+    //  */
+    // static validaTelefone(telefone) {
+    //     const tel = parseInt(telefone)
+    //     return tel == telefone
     // }
-    // static validaTelefone(telefone){
-    //     return telefone == /^\([1-9]{2}\) 9[7-9]{1}[0-9]{3}\-[0-9]{4}$/
-    // }
-    static ehValido(nome){
-         return this.validaNome(nome)
-     }
+
+    /**
+     * Método que valida se o e-mail está no padrão "string@string.com"
+     * @param {string} email 
+     * @returns boolean
+     */
+    static validaEmail(email) {
+        const regex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
+        return regex.test(email)
+    }
+
+    /**
+     * 
+     * @param {string} telefone 
+     * @returns boolean
+     */
+    static validaTelefone(telefone) {
+        const tel = parseInt(telefone)
+        return tel == telefone
+    }
+
+    /**
+     * 
+     * @param {string} nome 
+     * @param {string} email 
+     * @param {string} telefone 
+     * @returns boolean
+     */
+    static isValid(nome, email, telefone) {
+        return this.validaNome(nome) && this.validaTelefone(telefone) && this.validaEmail(email)
+    }
 }
-
-
-export default ValidacoesServices

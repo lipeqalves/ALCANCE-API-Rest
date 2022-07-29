@@ -7,16 +7,20 @@ import Database from "../infra/Database.js";
 DatabaseAlunoMetodos.createTableAlunos();
 class Alunos {
     static rotas(app){
+
         app.get("/alunos", async(req, res) =>{
-            
             const response = await DatabaseAlunoMetodos.listarAlunos()
+            res.status(200).json(response)
+        })
+
+        app.get("/alunos/:id", async(req, res) =>{
+            const response = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id)
             res.status(200).json(response)
         })
 
         app.post("/alunos",async (req, res) =>{
             
             // const ehValido = ValidacoesServices.ehValido(...Object.values(req.body))
-            
             // if(!ehValido){
                 
                 const aluno = new AlunoModel(...Object.values(req.body))
@@ -27,11 +31,18 @@ class Alunos {
             //  res.status(400).json({Erro:"Erro"})
             // }
         })
-    //     app.put("/alunos/:id",(req, res) => {
-    //         const aluno = new AlunoModel(...Object.values(req.body))
-            
-    //         res.status(201).json(DatabaseMetodos.atualizarPorId(...Object.values(req.params.id, aluno)))
-    //     })
+
+        app.put("/alunos/:id", async (req, res) => {
+            const aluno = new AlunoModel(...Object.values(req.body))
+            const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id, aluno))
+            res.status(201).json(response)
+        })
+
+        app.delete("/alunos/:id", async (req, res) => {
+            const response = await DatabaseAlunoMetodos.excluirAluno(...Object.values(req.params.id))
+            res.status(201).json(response)
+        })
+        
      }
 }
 

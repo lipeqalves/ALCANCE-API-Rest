@@ -1,7 +1,7 @@
 import Database from "../infra/Database.js";
 
 class DAO{
-    static ativaChavesEstrangeiras(){
+    static async ativaChavesEstrangeiras(){
         const query = 'PRAGMA foreign_keys = ON';
 
         Database.run(query, error => {
@@ -57,7 +57,7 @@ class DAO{
                 if(e){
                     reject(e.message)
                 } else {
-                    resolve({error: false, message: "Cadastrado com sucesso!"})
+                    resolve({message: "Cadastrado com sucesso!"})
                 }
             })
         })

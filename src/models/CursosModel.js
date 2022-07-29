@@ -1,7 +1,7 @@
 class CursosModel {
-    constructor(nome, duracao,){
+    constructor(nome, horas_duracao){
         this.nome = nome,
-        this.duracao = duracao
+        this.horas_duracao = horas_duracao
     }
 }
 

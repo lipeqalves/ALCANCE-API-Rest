@@ -1,7 +1,7 @@
 import express  from "express";
 import * as dotenv from "dotenv";
 import Alunos from "./src/controllers/Alunos.js"
-import Cursos from "./src/controllers/Cursos"
+import Cursos from "./src/controllers/Cursos.js"
 dotenv.config()
 
 const port = process.env.PORT || 3000;

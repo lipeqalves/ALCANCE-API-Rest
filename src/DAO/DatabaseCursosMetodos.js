@@ -12,27 +12,34 @@ class DatabaseCursosMetodos extends DAO {
         return response
     }
 
-    static listarCursos() {
-        try{
-            const queryCursos = `SELECT * FROM cursos`;
-            const response = this.listarTodos(queryCursos);
+    static async inserirCursos(curso){
+        const query = `INSERT INTO cursos (nome, horas_duracao) VALUES (?,?)`
+        const response = await this.inserir(curso, query)
+        return response
+    }
+
+    static async listarCursos() {
+            const query = `SELECT * FROM cursos`;
+            const response = await this.listarTodos(query);
             return response;
-
-        }catch(e){
-            console.log("Erro:", e)
-        }
     }
 
-    static listarCursosPorId(id) {
-        const queryCursos = `SELECT * FROM cursos WHERE ID = ?`;
-        const response = this.listarPorId(id, queryCursos);
+    static async listarCursosPorId(id) {
+        const query = `SELECT * FROM cursos WHERE ID = ?`;
+        const response = await this.listarPorId(id, query);
         return response;
     }
 
-    static adicionaCurso(curso) {
-        const queryCurso = `INSERT INTO cursos (nome, horas_duracao) VALUES (?,?)`
-        const response = this.inserir(curso, queryCurso)
+    static async adicionaCurso(curso) {
+        const query = `INSERT INTO cursos (nome, horas_duracao) VALUES (?,?)`
+        const response = await this.inserir(curso, query)
         return response;
+    }
+
+    static async deletaCursoPorId(id){
+        const query = `DELETE FROM usuarios WHERE id = ?`
+        const response = await this.deletaPorId(query, id)
+        return response
     }
 
 }

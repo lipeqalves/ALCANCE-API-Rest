@@ -30,14 +30,14 @@ class DatabaseCursosMetodos extends DAO {
         return response;
     }
 
-    static async adicionaCurso(curso) {
-        const query = `INSERT INTO cursos (nome, horas_duracao) VALUES (?,?)`
-        const response = await this.inserir(curso, query)
+    static async atualizaCursoPorId(id, cursos) {
+        const query = `UPDATE cursos SET (nome, horas_duracao) = (?, ?) WHERE id = ?`
+        const response = await this.atualizaPorId(cursos, id, query)
         return response;
     }
 
     static async deletaCursoPorId(id){
-        const query = `DELETE FROM usuarios WHERE id = ?`
+        const query = `DELETE FROM cursos WHERE id = ?`
         const response = await this.deletaPorId(query, id)
         return response
     }

@@ -49,3 +49,5 @@ class ValidacoesService {
         return this.validaNome(nome) && this.validaTelefone(telefone) && this.validaEmail(email)
     }
 }
+
+export default ValidacoesService

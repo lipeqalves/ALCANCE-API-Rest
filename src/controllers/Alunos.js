@@ -20,16 +20,16 @@ class Alunos {
 
         app.post("/alunos",async (req, res) =>{
             
-            // const ehValido = ValidacoesServices.ehValido(...Object.values(req.body))
-            // if(!ehValido){
+             const ehValidaNome = ValidacoesServices.validaNome(...Object.values(req.body))
+             if(ehValidaNome){
                 
                 const aluno = new AlunoModel(...Object.values(req.body))
                 const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
                 res.status(201).json(response)
 
-            // }else{
-            //  res.status(400).json({Erro:"Erro"})
-            // }
+             }else{
+              res.status(400).json({Erro:"Erro"})
+             }
         })
 
         app.put("/alunos/:id", async (req, res) => {

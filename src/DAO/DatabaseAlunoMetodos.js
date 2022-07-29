@@ -32,7 +32,7 @@ static async listarAlunos(){
 
 static async listarAlunosPorId(id){
     const query = `SELECT * FROM alunos WHERE ID = ?`;
-    const response = await this.listarPorId(query, id);
+    const response = await this.listarPorId(id,query);
     return response;
 }
 
@@ -43,13 +43,13 @@ static async adicionaAluno(aluno){
 }
 static async atualizaAluno(id, aluno){
     const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?, turma = ?, curso= ?  WHERE ID = ? `   
-    const response = await this.atualizaPorId(id, aluno, query)
+    const response = await this.atualizaPorId(query, id, aluno)
     return response;
 }
 
 static async excluirAluno(id){
     const query = `DELETE FROM alunos WHERE ID = ? `   
-    const response = await this.deletaPorId(id, query)
+    const response = await this.deletaPorId(query, id)
     return response;
 }
 

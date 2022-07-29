@@ -20,17 +20,17 @@ class Empresa {
 
         app.post("/empresa",async (req, res) =>{
 
-            const ehValidaEmpresa = ValidacoesServices.validaEmpresa(...Object.values(req.body))
-             if(ehValidaEmpresa){
+            //const ehValidaEmpresa = ValidacoesServices.validaEmpresa(...Object.values(req.body))
+             //if(ehValidaEmpresa){
 
 
             const empresa = new EmpresaModel(...Object.values(req.body))
             const response = await DatabaseEmpresaMetodos.adicionaEmpresa(empresa)
             res.status(201).json(response)
 
-        }else{
-            res.status(400).json({Erro:"Erro"})
-           }
+        //}else{
+            //res.status(400).json({Erro:"Erro"})
+          // }
 
         })
 

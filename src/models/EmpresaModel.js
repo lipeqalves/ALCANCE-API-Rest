@@ -1,4 +1,4 @@
-class AlunoModel {
+class EmpresaModel {
     constructor(empresa, cnpj, email, telefone){
         
         this.empresa = empresa,

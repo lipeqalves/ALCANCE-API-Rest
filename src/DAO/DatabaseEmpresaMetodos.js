@@ -7,7 +7,7 @@ class DatabaseEmpresaMetodos extends DAO {
             empresa VARCHAR,
             cnpj  VARCHAR,
             email VARCHAR,
-            telefone VARCHAR,
+            telefone VARCHAR
         )`
 
         const response = await this.createTable(query);
@@ -32,7 +32,7 @@ class DatabaseEmpresaMetodos extends DAO {
     }
 
     static async adicionaEmpresa(empresa) {
-        const query = `INSERT INTO empresa (empresa, cnpj, email, telefone) VALUES (?,?,?,?,?)`
+        const query = `INSERT INTO empresa (empresa, cnpj, email, telefone) VALUES (?,?,?,?)`
         const response = await this.inserir(empresa, query)
         return response;
     }

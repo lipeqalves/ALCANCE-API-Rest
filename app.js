@@ -3,6 +3,7 @@ import * as dotenv from "dotenv";
 import Alunos from "./src/controllers/Alunos.js";
 import Cursos from "./src/controllers/Cursos.js";
 import Turmas from "./src/controllers/Turmas.js";
+import Empresa from "./src/controllers/Empresa.js";
 //import Matricula from "./src/controllers/Matricula.js"
 
 dotenv.config();
@@ -19,5 +20,6 @@ app.use(express.json());
 Alunos.rotas(app);
 Cursos.rotas(app);
 Turmas.rotas(app);
+Empresa.rotas(app);
 //Matricula.rotas(app);
 

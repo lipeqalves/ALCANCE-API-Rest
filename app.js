@@ -1,17 +1,20 @@
-import express  from "express";
+import express from "express";
 import * as dotenv from "dotenv";
-import Alunos from "./src/controllers/Alunos.js"
-import Cursos from "./src/controllers/Cursos.js"
-dotenv.config()
+import Alunos from "./src/controllers/Alunos.js";
+import Cursos from "./src/controllers/Cursos.js";
+import Turmas from "./src/controllers/Turmas.js";
+
+dotenv.config();
 
 const port = process.env.PORT || 3000;
-const app = express()
+const app = express();
 
 app.listen(port, () => {
-    console.log(`Servidor escutando em http://localhost:${port}`)
-})
+  console.log(`Servidor escutando em http://localhost:${port}`);
+});
 
-app.use(express.json())
+app.use(express.json());
 
-Alunos.rotas(app)
-Cursos.rotas(app)
+Alunos.rotas(app);
+Cursos.rotas(app);
+Turmas.rotas(app);

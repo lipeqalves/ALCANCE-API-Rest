@@ -6,7 +6,7 @@ static async createTableAlunos(){
  
 
         const query = 
-        
+
             `CREATE TABLE IF NOT EXISTS alunos (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome VARCHAR,
@@ -14,9 +14,7 @@ static async createTableAlunos(){
             telefone VARCHAR,
             turma VARCHAR,
             curso VARCHAR
-    
         )`
-    
         const response = await this.createTable(query);
         return response
 
@@ -34,7 +32,7 @@ static async listarAlunos(){
 
 static async listarAlunosPorId(id){
     const query = `SELECT * FROM alunos WHERE ID = ?`;
-    const response = await this.listarPorId(id, query);
+    const response = await this.listarPorId(query, id);
     return response;
 }
 
@@ -44,14 +42,14 @@ static async adicionaAluno(aluno){
     return response;
 }
 static async atualizaAluno(id, aluno){
-    const query = `UPDATE alunos SET aluno WHERE ID = ? `   
-    const response = await this.atualizaPorId(query, id, aluno)
+    const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?, turma = ?, curso= ?  WHERE ID = ? `   
+    const response = await this.atualizaPorId(id, aluno, query)
     return response;
 }
 
 static async excluirAluno(id){
     const query = `DELETE FROM alunos WHERE ID = ? `   
-    const response = await this.deletaPorId(query, id)
+    const response = await this.deletaPorId(id, query)
     return response;
 }
 

@@ -16,18 +16,18 @@
 ## Pré-requisitos e como rodar a aplicação/testes ✅
 <p> Para clonar e executar este aplicativo, você precisará do Git , Node.js v10.16 ou superior instalado em seu computador. E executar essas linhas de comando: </p>
 
-* # Clone esse repositório *
+*  Clone esse repositório 
 <p> $ git clone https://github.com/lipeqalves/projetoM4-API-Rest.git</p>
 
-* # Entre no repositório *
+*  Entre no repositório 
 
 <p> $ cd ./projetoM4-API-Rest/ </p>
 
-* # Instalar dependências *
+*  Instalar dependências 
 
 <p> $ npm install
 
-* # Execute a aplicação em modo de desenvolvimento * 
+*  Execute a aplicação em modo de desenvolvimento *
 
 <p> npm run 
 

@@ -32,15 +32,26 @@ static async listarAlunos(){
     }
 } 
 
-// static async listarAlunosPorId(id){
-//     const query = `SELECT * FROM alunos WHERE ID = ?`;
-//     const response = await this.listarPorId(id, query);
-//     return response;
-// }
+static async listarAlunosPorId(id){
+    const query = `SELECT * FROM alunos WHERE ID = ?`;
+    const response = await this.listarPorId(id, query);
+    return response;
+}
 
 static async adicionaAluno(aluno){
     const query = `INSERT INTO alunos (nome, email, telefone, turma, curso) VALUES (?,?,?,?,?)`
     const response = await this.inserir(aluno, query)
+    return response;
+}
+static async atualizaAluno(id, aluno){
+    const query = `UPDATE alunos SET aluno WHERE ID = ? `   
+    const response = await this.atualizaPorId(query, id, aluno)
+    return response;
+}
+
+static async excluirAluno(id){
+    const query = `DELETE FROM alunos WHERE ID = ? `   
+    const response = await this.deletaPorId(query, id)
     return response;
 }
 

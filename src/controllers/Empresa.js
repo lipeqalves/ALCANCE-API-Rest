@@ -1,6 +1,6 @@
 import EmpresaModel from "../models/EmpresaModel.js"
 import ValidacoesServices from "../services/ValidacoesServices.js"
-import DatabaseAlunoMetodos from "../DAO/DatabaseEmpresaMetodos.js"
+import DatabaseEmpresaMetodos from "../DAO/DatabaseEmpresaMetodos.js"
 import Database from "../infra/Database.js";
 
 

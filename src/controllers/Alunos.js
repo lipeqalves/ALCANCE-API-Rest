@@ -34,7 +34,7 @@ class Alunos {
 
         app.put("/alunos/:id", async (req, res) => {
             const aluno = new AlunoModel(...Object.values(req.body))
-            const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id, aluno))
+            const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
             res.status(201).json(response)
         })
 

@@ -2,23 +2,26 @@ import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js";
 import DAO from "../DAO/DAO.js";
 
 
-const aluno = {
-    nome:"Aluno de Teste",
-    email: "aluno@test.br" ,
-    telefone: "8199999999",
-    turma:"01",
-    curso:"banco de dados"
-}
+    const aluno = {
+        nome:"Aluno",
+        email: "aluno@test.br" ,
+        telefone: "8199999999",
+        turma:"01",
+        curso:"Informática Avançada"
+    }
 
-try {
-    await DAO.ativaChavesEstrangeiras() 
-    
-    const alunos = await DatabaseAlunoMetodos.createTableAlunos()
-    console.log(alunos)
+    try {
+        await DAO.ativaChavesEstrangeiras() 
+        
+        await DatabaseAlunoMetodos.createTableAlunos()
+        
+        await DatabaseAlunoMetodos.adicionaAluno(aluno)
+        
+    }catch (e){
+        console.log(e.message)
+    }
 
-    const alunoZero = await DatabaseAlunoMetodos.adicionaAluno(aluno)
-    console.log(alunoZero)
+        
+        
 
-}catch (e){
-    console.log(e.message)
-}
+

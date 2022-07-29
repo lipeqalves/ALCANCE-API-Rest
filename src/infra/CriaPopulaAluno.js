@@ -11,7 +11,7 @@ const aluno = {
 }
 
 try {
-     DAO.ativaChavesEstrangeiras() 
+    await DAO.ativaChavesEstrangeiras() 
     
     const alunos = await DatabaseAlunoMetodos.createTableAlunos()
     console.log(alunos)

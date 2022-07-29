@@ -1,21 +1,18 @@
 import Database from "../infra/Database.js";
 
 class DAO{
-    static activePragma(){
-        const pragma = "PRAGMA foreign_keys = ON"
+    static ativaChavesEstrangeiras(){
+        const query = 'PRAGMA foreign_keys = ON';
 
-        Database.run(pragma, (e)=>{
-            if(e){
-                console.log(e)
+        Database.run(query, error => {
+            if(error){
+                console.log(error.mensage);
             } else {
-                console.log("Chaves estrangeiras estão ativas")
+                console.log("Chaves estrangeiras estão ativas");
             }
-        })
+        });
     }
-
     static createTable(query){
-        
-        this.activePragma()
 
         return new Promise((resolve, reject)=>{
             Database.run(query, (e)=>{
@@ -40,17 +37,17 @@ class DAO{
         })
     }
 
-    static listarPorId(id, query){
-        return new Promise((resolve, reject)=> {
-            Database.get(query, id, (e, resultado)=>{
-                if(e){
-                    reject(e)
-                } else {
-                    resolve(resultado)
-                }
-            })
-        })
-    }
+    // static listarPorId(id, query){
+    //     return new Promise((resolve, reject)=> {
+    //         Database.get(query, id, (e, resultado)=>{
+    //             if(e){
+    //                 reject(e)
+    //             } else {
+    //                 resolve(resultado)
+    //             }
+    //         })
+    //     })
+    // }
 
     static inserir(entidade, query){
         const body = Object.values(entidade)
@@ -66,6 +63,5 @@ class DAO{
         })
     }
 }
-
 
 export default DAO

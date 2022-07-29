@@ -2,7 +2,7 @@
 
 ## Sobre a Aplicação 📕
 
-<p>Olá Devs, esse projeto foi proposto para finalização do Módulo 4 no curso FullStack da [Resilia Educação](https://www.resilia.com.br/). Ele consiste em criar uma aplicação no ambiente back-end para simular a rotina de uma escola. Para isso, foi utilizado o banco de dados relacional SQLite, o padrão do tipo REST, padrão MVC e o padrão DAO na construção do projeto.</p>
+<p>Olá Devs, esse projeto foi proposto para finalização do Módulo 4 no curso FullStack da Resilia Educação (https://www.resilia.com.br/). Ele consiste em criar uma aplicação no ambiente back-end para simular a rotina de uma escola. Para isso, foi utilizado o banco de dados relacional SQLite, o padrão do tipo REST, padrão MVC e o padrão DAO na construção do projeto.</p>
 
 ## Ferramentas Utilizadas 🛠
 

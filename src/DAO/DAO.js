@@ -33,7 +33,7 @@ class DAO {
                 if (e) {
                     reject(e.message)
                 } else {
-                    resolve({error: false, message: "Cadastrado com sucesso!" })
+                    resolve({ error: false, message: "Cadastrado com sucesso!" })
                 }
             })
         })
@@ -88,6 +88,5 @@ class DAO {
         })
     }
 }
-
 
 export default DAO

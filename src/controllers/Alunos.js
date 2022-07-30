@@ -20,8 +20,8 @@ class Alunos {
 
         app.post("/alunos",async (req, res) =>{
             
-             const ehValidaNome = ValidacoesServices.validaNome(...Object.values(req.body))
-             if(ehValidaNome){
+             const isValid = ValidacoesServices.isValid(...Object.values(req.body))
+             if(isValid){
                 
                 const aluno = new AlunoModel(...Object.values(req.body))
                 const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)

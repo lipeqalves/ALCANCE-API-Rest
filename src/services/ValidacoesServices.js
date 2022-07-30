@@ -8,16 +8,6 @@ class ValidacoesService {
         return nome.length >= 3
     }
 
-    // /**
-    //  * 
-    //  * @param {string} telefone 
-    //  * @returns boolean
-    //  */
-    // static validaTelefone(telefone) {
-    //     const tel = parseInt(telefone)
-    //     return tel == telefone
-    // }
-
     /**
      * Método que valida se o e-mail está no padrão "string@string.com"
      * @param {string} email 

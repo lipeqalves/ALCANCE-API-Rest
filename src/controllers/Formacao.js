@@ -1,3 +1,6 @@
+import FormacaoModel from "../models/FormacaoModel.js"
+import DatabaseFormacao from "../DAO/DatabaseFormacaoMetodos.js"
+
 class Formacao {
     static rotas(app) {
         app.get("/formacao", async (req, res) => {

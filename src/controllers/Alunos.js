@@ -28,14 +28,30 @@ class Alunos {
                 res.status(201).json(response)
 
              }else{
-              res.status(400).json({Erro:"Erro"})
+                const isValidNome =  ValidacoesServices.validaNome(req.body.nome)
+                const isValidTelefone =  ValidacoesServices.validaTelefone(req.body.telefone)
+                const isValidEmail =  ValidacoesServices.validaEmail(req.body.email)
+                if(!isValidNome){
+                    res.status(400).json({Erro:`O nome: ${req.body.nome}, é invalido`})
+                }else if(!isValidEmail){
+                    res.status(400).json({Erro:`O Email: ${req.body.email}, é invalido`})
+                }else if(!isValidTelefone){
+                    res.status(400).json({Erro:`O numero de telefone: ${req.body.telefone}, é invalido`})
+                }
              }
         })
 
         app.put("/alunos/:id", async (req, res) => {
-            const aluno = new AlunoModel(...Object.values(req.body))
-            const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
-            res.status(201).json(response)
+            const isValid = ValidacoesServices.isValid(...Object.values(req.body))
+            if(isValid){
+
+                const aluno = new AlunoModel(...Object.values(req.body))
+                const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
+                res.status(201).json(response)
+            }else{
+                
+                res.status(400).json({Erro:"Erro"})
+            }
         })
 
         app.delete("/alunos/:id", async (req, res) => {

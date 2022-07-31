@@ -37,13 +37,13 @@ class DatabaseMatriculaMetodos extends DAO {
     }
 
     static async adicionaMatriculas(matricula) {
-        const query = `INSERT INTO matriculas (nome_aluno, data_inicio, numero_matricula, turma, curso) VALUES (?,?,?,?,?)`
+        const query = `INSERT INTO matriculas (aluno, data_inicio, numero_matricula, turma, curso) VALUES (?,?,?,?,?)`
         const response = await this.inserir(matricula, query)
         return response;
     }
 
     static async atualizaMatricula(id, matricula) {
-        const query = `UPDATE matriculas SET nome_aluno = ?, data_inicio = ?, numero_matricula = ?, turma = ?, curso= ?  WHERE ID = ? `
+        const query = `UPDATE matriculas SET aluno = ?, data_inicio = ?, numero_matricula = ?, turma = ?, curso= ?  WHERE ID = ? `
         const response = await this.atualizaPorId(matricula, id, query)
         return response;
     }

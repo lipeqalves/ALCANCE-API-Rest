@@ -1,7 +1,7 @@
 import AlunoModel from "../models/AlunoModel.js"
 import ValidacoesServices from "../services/ValidacoesServices.js"
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js"
-import Database from "../infra/Database.js";
+
 
 
 DatabaseAlunoMetodos.createTableAlunos();
@@ -15,6 +15,10 @@ class Alunos {
 
         app.get("/alunos/:id", async(req, res) =>{
             const response = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id)
+            res.status(200).json(response)
+        })
+        app.get("/aluno/:email", async(req, res) =>{
+            const response = await DatabaseAlunoMetodos.listarAlunosPorEmail(req.params.email)
             res.status(200).json(response)
         })
 
@@ -48,7 +52,7 @@ class Alunos {
                 const aluno = new AlunoModel(...Object.values(req.body))
                 const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
                 res.status(201).json(response)
-                
+
             }else{
                 const isValidNome =  ValidacoesServices.validaNome(req.body.nome)
                 const isValidTelefone =  ValidacoesServices.validaTelefone(req.body.telefone)

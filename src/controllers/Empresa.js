@@ -17,7 +17,7 @@ class Empresa {
                 if (!empresa) {
                     throw new Error("Empresa não encontrada com esse Id")
                 }
-                res.status(200).json(response)
+                res.status(200).json(empresa)
             } catch (error) {
                 res.status(400).json(error.message)
             }

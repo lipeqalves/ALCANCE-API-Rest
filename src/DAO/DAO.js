@@ -66,11 +66,11 @@ class DAO {
     static atualizaPorId(entidade, id, query) {
         const body = Object.values(entidade)
         return new Promise((resolve, reject) => {
-            Database.run(query, [...body, id], (e, result) => {
+            Database.run(query, [...body, id], (e) => {
                 if (e) {
                     reject(e.message)
                 } else {
-                    resolve(result)
+                    resolve({ error: false, message: `Registro com Id ${id} atualizado com sucesso` })
                 }
             })
         })

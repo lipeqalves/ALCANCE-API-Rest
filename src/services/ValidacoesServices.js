@@ -6,7 +6,7 @@ class ValidacoesService {
    */
   static validaNome(nome) {
     const str = parseInt(nome);
-    return nome.length >= 3 && str != nome;
+    return nome.length >= 4 && str != nome;
   }
 
   /**

@@ -21,3 +21,5 @@ class ValidacoesTurmas extends ValidacoesService {
     );
   }
 }
+
+export default ValidacoesTurmas;

@@ -9,12 +9,6 @@ class ValidacoesService {
         return (nome.length >= 3 && str != nome) 
     }
 
-    //static validaCnpj(cnpj) {
-
-        //const regexCnpj = /^\d{2}.\d{3}.\d{3}/\d{4}-\d{2}$/
-        //return regexCnpj.test(cnpj)
-
-    //}
 
     /**
      * Método que valida se o e-mail está no padrão "string@string.com"

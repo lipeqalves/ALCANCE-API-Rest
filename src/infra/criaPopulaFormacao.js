@@ -1,5 +1,5 @@
 import DatabaseFormacaoMetodos from "../DAO/DatabaseFormacaoMetodos.js"
-import DAO from "../DAO/DAO.js";
+//import DAO from "../DAO/DAO.js";
 
 const formacoes = [{
     aluno: "Filipe",
@@ -31,7 +31,7 @@ const formacoes = [{
 }]
 
 try {
-    await DAO.ativaChavesEstrangeiras()
+    //await DAO.ativaChavesEstrangeiras()
     const response = await DatabaseFormacaoMetodos.createTableFormacao()
     console.log(`Tabela Formacao: ${response}`)
 

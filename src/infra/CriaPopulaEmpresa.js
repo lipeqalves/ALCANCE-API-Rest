@@ -1,5 +1,5 @@
 import DatabaseEmpresaMetodos from "../DAO/DatabaseEmpresaMetodos.js";
-import DAO from "../DAO/DAO.js";
+//import DAO from "../DAO/DAO.js";
 
 const empresas = [{
    empresa: "Roberta soluções informática S.A",
@@ -18,7 +18,7 @@ const empresas = [{
  }]
 
  try {
-    await DAO.ativaChavesEstrangeiras();
+   // await DAO.ativaChavesEstrangeiras();
     const response = await DatabaseEmpresaMetodos.createTableEmpresa();
     console.log(`Tabela Empresa: ${response}`);
 

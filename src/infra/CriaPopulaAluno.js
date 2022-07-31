@@ -1,5 +1,5 @@
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js";
-import DAO from "../DAO/DAO.js";
+//import DAO from "../DAO/DAO.js";
 
 const alunos = [
     {
@@ -26,12 +26,12 @@ const alunos = [
 ]
 
 try {
-    await DAO.ativaChavesEstrangeiras()
+    //await DAO.ativaChavesEstrangeiras()
 
     const response = await DatabaseAlunoMetodos.createTableAlunos()
     console.log(`Tabela Alunos: ${response}`)
 
-    alunos.forEach(async (aluno) => {
+    alunos.forEach(async aluno => {
         const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
         console.log(response)
     })

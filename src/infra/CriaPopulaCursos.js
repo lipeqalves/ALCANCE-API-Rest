@@ -1,5 +1,5 @@
 import DatabaseCursosMetodos from "../DAO/DatabaseCursosMetodos.js"
-import DAO from "../DAO/DAO.js";
+//import DAO from "../DAO/DAO.js";
 
 const cursos = [{
     nome: "Informática Avançada",
@@ -13,7 +13,7 @@ const cursos = [{
 }]
 
 try {
-    await DAO.ativaChavesEstrangeiras()
+    //await DAO.ativaChavesEstrangeiras()
     const response = await DatabaseCursosMetodos.createTableCursos()
     console.log(`Tabela Cursos: ${response}`)
 

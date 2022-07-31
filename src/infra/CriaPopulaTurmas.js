@@ -1,5 +1,5 @@
 import DatabaseTurmasMetodos from "../DAO/DatabaseTurmasMetodos.js";
-import DAO from "../DAO/DAO.js";
+//import DAO from "../DAO/DAO.js";
 
 const turmas = [{
     classificacao: "A",
@@ -22,7 +22,7 @@ const turmas = [{
   }]
 
 try {
-  await DAO.ativaChavesEstrangeiras();
+  //await DAO.ativaChavesEstrangeiras();
   const response = await DatabaseTurmasMetodos.createTableTurmas();
   console.log(`Tabela Turmas: ${response}`);
 

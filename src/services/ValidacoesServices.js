@@ -19,13 +19,13 @@ class ValidacoesService {
         return regex.test(email)
     }
 
-    /**
+    /**Método que valida se o telefone esta no padrão:
      * Exemplos válidos: +55 (11) 98888-8888 / 9999-9999 / 21 98888-8888 / 5511988888888
      * @param {string} telefone 
      * @returns boolean
      */
     static validaTelefone(telefone) {
-       // const tel = parseInt(telefone)
+
         const regex = /^(?:(?:\+|00)?(55)\s?)?(?:(?:\(?[1-9][0-9]\)?)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/
         return  regex.test(telefone)
     }

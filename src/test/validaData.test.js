@@ -26,3 +26,8 @@ test("Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA",()=>{
 test("Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA",()=>{
     expect(ValidacoesService.validaData("32-10-2022")).toBe(false)
 })
+
+test("Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA",()=>{
+    expect(ValidacoesService.validaData("00-00-0000")).toBe(false)
+})
+

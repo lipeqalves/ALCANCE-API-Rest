@@ -31,14 +31,13 @@ const formacoes = [{
 }]
 
 try {
-    //await DAO.ativaChavesEstrangeiras()
     const response = await DatabaseFormacaoMetodos.createTableFormacao()
     console.log(`Tabela Formacao: ${response}`)
 
     formacoes.forEach(async function (formacao) {
         const resposta = await DatabaseFormacaoMetodos.inserirFormacao(formacao)
-        console.log(resposta)
     })
+    console.log('Formacoes cadastradas com sucesso!')
 } catch (e) {
     console.log("Error:", e)
 }

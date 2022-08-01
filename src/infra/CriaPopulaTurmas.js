@@ -22,14 +22,13 @@ const turmas = [{
   }]
 
 try {
-  //await DAO.ativaChavesEstrangeiras();
   const response = await DatabaseTurmasMetodos.createTableTurmas();
   console.log(`Tabela Turmas: ${response}`);
 
   turmas.forEach(async function (turma) {
     const resposta = await DatabaseTurmasMetodos.inserirTurmas(turma);
-    console.log(resposta);
   });
+  console.log('Turmas cadastradas com sucesso!')
 } catch (e) {
   console.log("Erro:", e);
 }

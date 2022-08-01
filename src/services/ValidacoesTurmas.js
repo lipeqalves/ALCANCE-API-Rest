@@ -30,7 +30,7 @@ class ValidacoesTurmas extends ValidacoesService {
     return (
       this.validaClassificacao(classificacao) &&
       this.validaData(data_inicio) &&
-      this.validaData(data_inicio) &&
+      this.validaData(data_formatura) &&
       this.validaNome(professor) &&
       this.validaNome(curso)
     );

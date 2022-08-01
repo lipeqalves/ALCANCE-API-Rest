@@ -53,11 +53,12 @@ class Cursos {
 
         app.delete("/cursos/:id", async (req, res) => {
             try {
-                const curso = await DatabaseCursosMetodos.deletaCursoPorId(req.params.id)
+                const curso = await DatabaseCursosMetodos.listarCursosPorId(req.params.id)
                 if (!curso) {
                     throw new Error("Curso não encontrado")
                 }
-                res.status(200).json(curso)
+                const response = await DatabaseCursosMetodos.deletaCursoPorId(req.params.id)
+                res.status(200).json(response)
             } catch (error) {
                 res.status(404).json(error.message)
             }

@@ -49,21 +49,6 @@ class ValidacoesService {
     const regexCnpj = /^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2})$/
     return regexCnpj.test(cnpj)
   }
-
-  /**
-   *
-   * @param {string} nome
-   * @param {string} email
-   * @param {string} telefone
-   * @returns boolean
-   */
-  static isValid(nome, email, telefone) {
-    return (
-      this.validaNome(nome) &&
-      this.validaTelefone(telefone) &&
-      this.validaEmail(email)
-    );
-  }
 }
 
 export default ValidacoesService;

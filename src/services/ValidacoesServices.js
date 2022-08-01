@@ -9,16 +9,6 @@ class ValidacoesService {
     return nome.length >= 4 && str != nome;
   }
 
-  /**
-   * Método que valida se o e-mail está no padrão "string@string.com"
-   * @param {string} email 
-   * @returns boolean
-   */
-  static validaEmail(email) {
-    const regex = /^[a-z0-9.]+@[a-z0-9]+\.[a-z]+(\.[a-z]+)?$/i
-    return regex.test(email)
-  }
-
 /**
  * Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA
  * @param {string} data 

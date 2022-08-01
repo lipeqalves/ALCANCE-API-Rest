@@ -62,12 +62,14 @@ class DAO {
             })
         })
     }
-    static listarPorEmail(email, query) {
+    static listarPorEmail(query,email) {
         return new Promise((resolve, reject) => {
             Database.get(query, email, (e, resultado) => {
                 if (e) {
+                    console.log(e)
                     reject(e.message)
                 } else {
+                    console.log(resultado)
                     resolve(resultado)
                 }
             })

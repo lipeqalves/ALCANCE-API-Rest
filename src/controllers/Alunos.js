@@ -28,7 +28,7 @@ class Alunos {
         })
         app.get("/aluno/:email", async (req, res) => {
             try {
-                const email = req.body.email
+                const email = req.params.email
                 const response = await DatabaseAlunoMetodos.listarAlunosPorEmail(email)
                 res.status(200).json(response)
 

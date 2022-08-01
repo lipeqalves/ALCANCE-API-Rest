@@ -1,5 +1,5 @@
 import AlunoModel from "../models/AlunoModel.js"
-import ValidacoesServices from "../services/ValidacoesServices.js"
+import ValidacoesAluno from "../services/ValidacoesAluno.js"
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js"
 
 
@@ -24,7 +24,7 @@ class Alunos {
 
         app.post("/alunos",async (req, res) =>{
             
-             const isValid = ValidacoesServices.isValid(...Object.values(req.body))
+             const isValid = ValidacoesAluno.validaAluno(...Object.values(req.body))
              if(isValid){
                 
                 const aluno = new AlunoModel(...Object.values(req.body))
@@ -32,9 +32,10 @@ class Alunos {
                 res.status(201).json(response)
 
              }else{
-                const isValidNome =  ValidacoesServices.validaNome(req.body.nome)
-                const isValidTelefone =  ValidacoesServices.validaTelefone(req.body.telefone)
-                const isValidEmail =  ValidacoesServices.validaEmail(req.body.email)
+                const isValidNome =  ValidacoesAluno.validaNome(req.body.nome)
+                const isValidTelefone =  ValidacoesAluno.validaTelefone(req.body.telefone)
+                const isValidEmail =  ValidacoesAluno.validaEmail(req.body.email)
+                const isValidIdade =  ValidacoesAluno.validaIdade(req.body.idade)
                 if(!isValidNome){
                     res.status(400).json({Erro:`O nome: ${req.body.nome}, é invalido`})
                 }else if(!isValidEmail){
@@ -42,11 +43,14 @@ class Alunos {
                 }else if(!isValidTelefone){
                     res.status(400).json({Erro:`O numero de telefone: ${req.body.telefone}, é invalido`})
                 }
+                else if(!isValidIdade){
+                    res.status(400).json({Erro:`A Idade: ${req.body.idade}, é invalido`})
+                }
              }
         })
 
         app.put("/alunos/:id", async (req, res) => {
-            const isValid = ValidacoesServices.isValid(...Object.values(req.body))
+            const isValid = ValidacoesAluno.validaAluno(...Object.values(req.body))
             if(isValid){
 
                 const aluno = new AlunoModel(...Object.values(req.body))
@@ -54,15 +58,18 @@ class Alunos {
                 res.status(201).json(response)
 
             }else{
-                const isValidNome =  ValidacoesServices.validaNome(req.body.nome)
-                const isValidTelefone =  ValidacoesServices.validaTelefone(req.body.telefone)
-                const isValidEmail =  ValidacoesServices.validaEmail(req.body.email)
+                const isValidNome =  ValidacoesAluno.validaNome(req.body.nome)
+                const isValidTelefone =  ValidacoesAluno.validaTelefone(req.body.telefone)
+                const isValidEmail =  ValidacoesAluno.validaEmail(req.body.email)
+                const isValidIdade =  ValidacoesAluno.validaIdade(req.body.idade)
                 if(!isValidNome){
                     res.status(400).json({Erro:`O nome: ${req.body.nome}, é invalido`})
                 }else if(!isValidEmail){
                     res.status(400).json({Erro:`O Email: ${req.body.email}, é invalido`})
                 }else if(!isValidTelefone){
                     res.status(400).json({Erro:`O numero de telefone: ${req.body.telefone}, é invalido`})
+                }else if(!isValidIdade){
+                    res.status(400).json({Erro:`A Idade: ${req.body.idade}, é invalido`})
                 }
             }
         })

@@ -1,6 +1,6 @@
 class ValidacoesService {
   /**
-   *Metodo valida se string tem mais que 3 caracteres
+   *Metodo valida se string tem mais que 4 caracteres
    * @param {string} nome
    * @returns boolean
    */

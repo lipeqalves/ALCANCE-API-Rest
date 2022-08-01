@@ -2,7 +2,7 @@ import ValidacoesService from "./ValidacoesServices.js";
 
 class ValidacoesCursos extends ValidacoesService{
     /**
-     * 
+     * Metodo valida horas_duracao da entidade cursos
      * @param {string} horas_duracao 
      * @returns boolean 
      */
@@ -11,7 +11,7 @@ class ValidacoesCursos extends ValidacoesService{
         return horas >= 1
     }
     /**
-     * 
+     * Metodo valida nome e hora_duracao da entidade cursos
      * @param {string} nome 
      * @param {string} horas_duracao 
      * @returns boolean

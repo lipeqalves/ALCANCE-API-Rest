@@ -1,11 +1,10 @@
 import DatabaseFormacaoMetodos from "../DAO/DatabaseFormacaoMetodos.js"
-//import DAO from "../DAO/DAO.js";
 
 const formacoes = [{
     aluno: "Filipe",
     instituicao: "Conexão",
     cnpj: "12.652.984/0001-07",
-    telefone: "4445567789",
+    telefone: "9999-9999",
     email: "instituicao@conexao.com",
     cidade: "Recife",
     estado: "PE",
@@ -14,7 +13,7 @@ const formacoes = [{
     aluno: "Juliana",
     instituicao: "Geração Aprender",
     cnpj: "34.654.532/0001-08",
-    telefone: "3335567743",
+    telefone: "5511988888888",
     email: "instituicao@geracaoaprender.com",
     cidade: "Garopaba",
     estado: "SC",
@@ -23,7 +22,7 @@ const formacoes = [{
     aluno: "Roberta",
     instituicao: "Focus",
     cnpj: "56.655.489/0001-09",
-    telefone: "1115562245",
+    telefone: "21 98888-8888",
     email: "instituicao@focus.com",
     cidade: "Rio de Janeiro",
     estado: "RJ",

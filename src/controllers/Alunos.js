@@ -19,7 +19,8 @@ class Alunos {
 
         app.get("/alunos/:id", async (req, res) => {
             try {
-                const response = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id)
+                const id = req.params.id;
+                const response = await DatabaseAlunoMetodos.listarAlunosPorId(id)
                 res.status(200).json(response)
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
@@ -27,8 +28,7 @@ class Alunos {
         })
         app.get("/aluno/:email", async (req, res) => {
             try {
-
-                const email = req.params.email
+                const email = req.body.email
                 const response = await DatabaseAlunoMetodos.listarAlunosPorEmail(email)
                 res.status(200).json(response)
 
@@ -39,8 +39,14 @@ class Alunos {
 
         app.post("/alunos", async (req, res) => {
             try {
-                const isValid = ValidacoesAluno.validaAluno(...Object.values(req.body))
-                if (isValid) {
+                const nome = req.body.nome;
+                 const tel = req.body.telefone
+                const email = req.body.email
+                const idade = req.body.idade
+
+                const validaAluno = ValidacoesAluno.validaAluno(...Object.values(req.body))
+
+                if (validaAluno) {
 
                     const aluno = new AlunoModel(...Object.values(req.body))
                     const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
@@ -48,20 +54,20 @@ class Alunos {
 
                 } else {
 
-                    const isValidNome = ValidacoesAluno.validaNome(req.body.nome)
-                    const isValidTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
-                    const isValidEmail = ValidacoesAluno.validaEmail(req.body.email)
-                    const isValidIdade = ValidacoesAluno.validaIdade(req.body.idade)
+                    const validaNome = ValidacoesAluno.validaNome(nome)
+                    const validaTelefone = ValidacoesAluno.validaTelefone(tel)
+                    const validaEmail = ValidacoesAluno.validaEmail(email)
+                    const validaIdade = ValidacoesAluno.validaIdade(idade)
 
-                    if (!isValidNome) {
-                        res.status(400).json({ Error: true, msg: `O nome: ${req.body.nome}, é invalido` })
-                    } else if (!isValidEmail) {
-                        res.status(400).json({ Error: true, msg: `O Email: ${req.body.email}, é invalido` })
-                    } else if (!isValidTelefone) {
-                        res.status(400).json({ Error: true, msg: `O numero de telefone: ${req.body.telefone}, é invalido` })
+                    if (!validaNome) {
+                        res.status(400).json({ Error: true, msg: `O nome: ${nome}, é invalido` })
+                    } else if (!validaEmail) {
+                        res.status(400).json({ Error: true, msg: `O Email: ${email}, é invalido` })
+                    } else if (!validaTelefone) {
+                        res.status(400).json({ Error: true, msg: `O numero de telefone: ${tel}, é invalido` })
                     }
-                    else if (!isValidIdade) {
-                        res.status(400).json({ Error:true, msg: `A Idade: ${req.body.idade}, é invalido` })
+                    else if (!validaIdade) {
+                        res.status(400).json({ Error: true, msg: `A Idade: ${idade}, é invalido` })
                     }
                 }
             } catch (e) {
@@ -70,26 +76,32 @@ class Alunos {
         })
 
         app.put("/alunos/:id", async (req, res) => {
-            try {
-                const isValid = ValidacoesAluno.validaAluno(...Object.values(req.body))
-                if (isValid) {
+            try {  
+                const id = req.params.id;
+                const nome = req.body.nome;
+                const tel = req.body.telefone
+                const email = req.body.email
+                const idade = req.body.idade
 
+              const isValid = ValidacoesAluno.validaAluno(...Object.values(req.body))
+
+                if (isValid) {
                     const aluno = new AlunoModel(...Object.values(req.body))
-                    const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
+                    const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(id), aluno)
                     res.status(201).json(response)
                 } else {
-                    const isValidNome = ValidacoesAluno.validaNome(req.body.nome)
-                    const isValidTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
-                    const isValidEmail = ValidacoesAluno.validaEmail(req.body.email)
-                    const isValidIdade = ValidacoesAluno.validaIdade(req.body.idade)
-                    if (!isValidNome) {
-                        res.status(400).json({ Error: true, msg: `O nome: ${req.body.nome}, é invalido` })
-                    } else if (!isValidEmail) {
-                        res.status(400).json({ Error: true, msg: `O Email: ${req.body.email}, é invalido` })
-                    } else if (!isValidTelefone) {
-                        res.status(400).json({Error: true, msg: `O numero de telefone: ${req.body.telefone}, é invalido` })
-                    } else if (!isValidIdade) {
-                        res.status(400).json({ Error: true, msg: `A Idade: ${req.body.idade}, é invalido` })
+                    const validaNome = ValidacoesAluno.validaNome(nome)
+                    const validaTelefone = ValidacoesAluno.validaTelefone(tel)
+                    const validaEmail = ValidacoesAluno.validaEmail(email)
+                    const validaIdade = ValidacoesAluno.validaIdade(idade)
+                    if (!validaNome) {
+                        res.status(400).json({ Error: true, msg: `O nome: ${nome}, é invalido` })
+                    } else if (!validaTelefone) {
+                        res.status(400).json({ Error: true, msg: `O Email: ${email}, é invalido` })
+                    } else if (!validaEmail) {
+                        res.status(400).json({ Error: true, msg: `O numero de telefone: ${tel}, é invalido` })
+                    } else if (!validaIdade) {
+                        res.status(400).json({ Error: true, msg: `A Idade: ${idade}, é invalido` })
                     }
                 }
             } catch (error) {
@@ -99,8 +111,9 @@ class Alunos {
 
         app.delete("/alunos/:id", async (req, res) => {
             try {
+                const id = req.params.id;
 
-                const response = await DatabaseAlunoMetodos.excluirAluno(...Object.values(req.params.id))
+                const response = await DatabaseAlunoMetodos.excluirAluno(...Object.values(id))
                 res.status(201).json(response)
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })

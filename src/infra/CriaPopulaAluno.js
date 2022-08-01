@@ -6,6 +6,7 @@ const alunos = [
         nome: "Filipe",
         email: "aluno@test.br",
         telefone: "8199999999",
+        idade:18,
         turma: "01",
         curso: "Informática Avançada"
     },
@@ -13,6 +14,7 @@ const alunos = [
         nome: "Juliana",
         email: "aluno@test.br",
         telefone: "8199999999",
+        idade:18,
         turma: "01",
         curso: "Programação Neurolinguistica"
     },
@@ -20,6 +22,7 @@ const alunos = [
         nome: "Roberta",
         email: "aluno@test.br",
         telefone: "8199999999",
+        idade:18,
         turma: "01",
         curso: "Programação Neurolinguistica"
     }

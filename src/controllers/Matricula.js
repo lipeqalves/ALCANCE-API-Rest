@@ -15,8 +15,11 @@ class Matricula {
 
         app.get("/matriculas/:id", async (req, res) => {
             try {
-                const response = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id)
-                res.status(200).json(response)
+                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
+                if(!matricula){
+                    throw new Error(`Matricula com ID = ${req.params.id} não encontrada`); 
+                }
+                res.status(200).json(matricula)
             } catch (e) {
                 res.status(400).json({ error: true, msg: e.message })
             }
@@ -54,6 +57,10 @@ class Matricula {
 
         app.delete("/matriculas/:id", async (req, res) => {
             try {
+                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
+                if(!matricula){
+                    throw new Error("Matricula com ID = ${req.params.id} não encontrada encontrada");
+                }
                 const response = await DatabeseMatriculaMetodos.excluirMatricula(...Object.values(req.params.id))
                 res.status(201).json(response)
                 

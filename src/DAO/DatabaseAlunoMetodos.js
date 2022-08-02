@@ -44,7 +44,7 @@ class DatabaseAlunoMetodos extends DAO {
     }
 
     static async adicionaAluno(aluno) {
-        const query = `INSERT INTO alunos (nome, email, telefone, idade, turma, curso) VALUES (?,?,?,?,?)`
+        const query = `INSERT INTO alunos (nome, email, telefone, idade, turma, curso) VALUES (?,?,?,?,?,?)`
         const response = await this.inserir(aluno, query)
         return response;
     }

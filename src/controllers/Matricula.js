@@ -6,7 +6,6 @@ class Matricula {
     static rotas(app) {
         app.get("/matriculas", async (req, res) => {
             try {
-                
                 const response = await DatabeseMatriculaMetodos.listarMatriculas()
                 res.status(200).json(response)
             } catch (e) {
@@ -16,7 +15,6 @@ class Matricula {
 
         app.get("/matriculas/:id", async (req, res) => {
             try {
-                
                 const response = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id)
                 res.status(200).json(response)
             } catch (e) {

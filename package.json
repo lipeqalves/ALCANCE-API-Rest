@@ -5,10 +5,9 @@
   "main": "app.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "infra": "node ./src/infra/criaEPopula.js",
     "start": "node app.js",
-    "dev": "nodemon app.js",
-    "infra": "node ./src/infra/criaEPopula"
-    
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",

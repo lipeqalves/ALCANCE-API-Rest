@@ -8,7 +8,7 @@ class ValidacoesCursos extends ValidacoesService{
      */
     static validaHoras(horas_duracao){
         const horas = parseInt(horas_duracao)
-        return horas >= 1
+        return horas >= 1 && horas <= 4000
     }
     /**
      * Metodo valida nome e hora_duracao da entidade cursos

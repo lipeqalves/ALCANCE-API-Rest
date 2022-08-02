@@ -32,8 +32,11 @@ describe('Com argumentos inválidos', () => {
         expect(ValidacoesService.validaNome(null)).toBe(false)
     })
 
-    // test("valida se o nome e sobrenome é maior que 4 e não é um numero", () => {
-    //     expect(ValidacoesService.validaNome(true)).toBe(false)
-    // })
+    test("valida se o nome e sobrenome é maior que 4 e não é um numero", () => {
+        expect(ValidacoesService.validaNome(true)).toBe(false)
+    })
+    test("valida se o nome e sobrenome é maior que 4 e não é um numero", () => {
+        expect(ValidacoesService.validaNome()).toBe(false)
+    })
 
 })

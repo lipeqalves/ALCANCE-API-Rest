@@ -5,10 +5,12 @@ class ValidacoesService {
    * @returns boolean
    */
   static validaNome(nome) {
-    const str = parseInt(nome)
-    return str >= 4
+    if(!nome){
+      return false
+    }
+    const str = parseInt(nome);
+    return nome.length >= 4 && str != nome;
   }
-
 
   /**
    * Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA

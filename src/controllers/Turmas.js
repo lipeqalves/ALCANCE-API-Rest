@@ -37,8 +37,7 @@ class Turmas {
     });
 
     app.put("/turmas/:id", async (req, res) => {
-      const validaTurma = ValidacoesTurmas.validaTurmas(
-        ...Object.values(req.body));
+      const validaTurma = ValidacoesTurmas.validaTurmas(...Object.values(req.body));
       try {
         if (validaTurma) {
           const turma = new TurmasModel(...Object.values(req.body));

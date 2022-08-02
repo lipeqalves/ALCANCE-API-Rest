@@ -7,6 +7,15 @@ import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js"
 DatabaseAlunoMetodos.createTableAlunos();
 class Alunos {
     static rotas(app) {
+        app.get("/", async (req, res) => {
+            try {
+               
+                res.status(200).json({msg: "Teste no haroku"})
+            } catch (e) {
+                res.status(400).json({ error: true, msg: e.message })
+            }
+        })
+
 
         app.get("/alunos", async (req, res) => {
             try {

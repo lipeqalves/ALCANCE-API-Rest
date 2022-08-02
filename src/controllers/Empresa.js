@@ -1,6 +1,6 @@
 import EmpresaModel from "../models/EmpresaModel.js"
-import ValidacoesEmpresa from "../services/ValidacoesEmpresa.js"
 import DatabaseEmpresaMetodos from "../DAO/DatabaseEmpresaMetodos.js"
+import ValidacoesEmpresa from "../services/ValidacoesEmpresa.js"
 
 class Empresa {
     static rotas(app) {

@@ -5,15 +5,16 @@ class ValidacoesService {
    * @returns boolean
    */
   static validaNome(nome) {
-    const str = parseInt(nome);
-    return nome.length >= 4 && str != nome;
+    const str = parseInt(nome)
+    return str >= 4
   }
 
-/**
- * Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA
- * @param {string} data 
- * @returns boolean
- */
+
+  /**
+   * Metodo usa esta regex que valida para DD/MM/AAAA ou DD-MM-AAAA
+   * @param {string} data 
+   * @returns boolean
+   */
   static validaData(data) {
     const regexData =
       /^(0?[1-9]|[12][0-9]|3[01])[/-](0?[1-9]|1[012])[/-]\d{4}$/;
@@ -39,13 +40,13 @@ class ValidacoesService {
     const regex = /^(?:(?:\+|00)?(55)\s?)?(?:(?:\(?[1-9][0-9]\)?)?\s?)?(?:((?:9\d|[2-9])\d{3})-?(\d{4}))$/
     return regex.test(telefone);
   }
-  
-/**
- * Metodo valida se o cnpj esta no padrao: 11.222.333/4444-55
- * @param {string} cnpj 
- * @returns boolean
- */
-  static validaCnpj(cnpj){
+
+  /**
+   * Metodo valida se o cnpj esta no padrao: 11.222.333/4444-55
+   * @param {string} cnpj 
+   * @returns boolean
+   */
+  static validaCnpj(cnpj) {
     const regexCnpj = /^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2})$/
     return regexCnpj.test(cnpj)
   }

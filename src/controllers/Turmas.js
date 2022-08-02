@@ -1,8 +1,8 @@
 import DatabaseTurmasMetodos from "../DAO/DatabaseTurmasMetodos.js";
 import ValidacoesTurmas from "../services/ValidacoesTurmas.js";
-import TurmasModel from "../models/TurmasModels.js";
+import TurmasModel from "../models/TurmasModel.js";
 
-class Turmas {
+class Turmas{
   static rotas(app) {
     app.get("/turmas", async (req, res) => {
       const response = await DatabaseTurmasMetodos.listarTurmas();

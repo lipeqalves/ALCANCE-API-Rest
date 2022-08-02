@@ -9,7 +9,7 @@
 - Linguagem: Javascript com NodeJS
 - Framework: Express
 - Banco de dados relacional: SQLite
-- ORM: Sequelize
+
 
 ![Badge](https://img.shields.io/badge/npm-v0.9.3-%237159c1?style=for-the-badge&logo=ghost)
 

@@ -38,8 +38,12 @@ class Alunos {
         })
         app.get("/aluno/:email", async (req, res) => {
             try {
-                const response = await DatabaseAlunoMetodos.listarAlunosPorEmail(req.params.email)
-                res.status(200).json(response)
+                
+                const aluno = await DatabaseAlunoMetodos.listarAlunosPorEmail(...Object.values(req.params.email))
+               if(!aluno){
+                throw new Error(`Aluno não encontrado com esse email = ${req.params.email}`)
+               }
+                res.status(200).json(aluno)
 
             } catch (error) {
                 res.status(400).json({ Error: true, msg: e.message })

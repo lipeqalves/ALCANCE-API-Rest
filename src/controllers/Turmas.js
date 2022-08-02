@@ -3,18 +3,22 @@ import DatabaseTurmasMetodos from "../DAO/DatabaseTurmasMetodos.js";
 import ValidacoesTurmas from "../services/ValidacoesTurmas.js";
 
 
-class Turmas{
+class Turmas {
   static rotas(app) {
     app.get("/turmas", async (req, res) => {
-      const response = await DatabaseTurmasMetodos.listarTurmas();
-      res.status(200).json(response);
+      try {
+        const response = await DatabaseTurmasMetodos.listarTurmas();
+        res.status(200).json(response);
+      } catch (error) {
+        res.status(400).json(error.message);
+      }
     });
 
     app.get("/turmas/:id", async (req, res) => {
       try {
         const turmas = await DatabaseTurmasMetodos.listarTurmasPorId(req.params.id);
         if (!turmas) {
-          throw new Error("Turma não encontrada com esse Id");
+          throw new Error(`Turma com Id ${req.params.id} não encontrada`);
         }
         res.status(200).json(turmas);
       } catch (error) {
@@ -30,7 +34,7 @@ class Turmas{
           const response = await DatabaseTurmasMetodos.inserirTurmas(turma);
           res.status(201).json(response);
         } else {
-          throw new Error("Requisição incompleta, revise o corpo da mesma");
+          throw new Error("Requisição incorreta, revise o corpo da mesma");
         }
       } catch (error) {
         res.status(400).json(error.message);
@@ -40,16 +44,18 @@ class Turmas{
     app.put("/turmas/:id", async (req, res) => {
       const validaTurma = ValidacoesTurmas.validaTurmas(...Object.values(req.body));
       try {
-        if (validaTurma) {
+        const turmas = await DatabaseTurmasMetodos.listarTurmasPorId(req.params.id);
+        if (!turmas) {
+          throw new Error(`Turma com Id ${req.params.id} não existe`)
+        } else if (validaTurma) {
           const turma = new TurmasModel(...Object.values(req.body));
           const response = await DatabaseTurmasMetodos.atualizaTurmaPorId(req.params.id, turma);
           res.status(200).json(response);
         } else {
-          throw new Error("Requisição inválida, revise o corpo da mesma")
+          throw new Error("Requisição inválida, revise o corpo da mesma");
         }
       } catch (error) {
-        res.status(400).json(error.message);
-
+        res.status(400).json({ Error: error.message });
       }
     });
 
@@ -57,7 +63,7 @@ class Turmas{
       try {
         const turma = await DatabaseTurmasMetodos.listarTurmasPorId(req.params.id);
         if (!turma) {
-          throw new Error("Turma não encontrada");
+          throw new Error(`Turma com Id ${req.params.id} não existe`);
         }
         const response = await DatabaseTurmasMetodos.deletaTurmaPorId(req.params.id)
         res.status(200).json(response);

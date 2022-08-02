@@ -6,9 +6,13 @@ class ValidacoesTurmas extends ValidacoesService {
    * @param {string} classificacao 
    * @returns boolean
    */
-  static validaClassificacao(classificacao) {
-    const string = parseInt(classificacao);
-    return classificacao.length == 1;
+  static validaClassificacao(nome) {
+    if (!nome) {
+      return false
+    }
+    const str = parseInt(nome);
+    return nome.length == 1 && str != nome;
+
   }
 
   /**

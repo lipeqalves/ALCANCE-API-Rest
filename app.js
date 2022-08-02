@@ -20,7 +20,7 @@ app.use(express.json());
 
 Alunos.rotas(app);
 Cursos.rotas(app);
-Turmas.rotas(app);
+//Turmas.rotas(app);
 Empresa.rotas(app);
 Formacao.rotas(app)
 Matricula.rotas(app);

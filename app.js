@@ -5,7 +5,7 @@ import Cursos from "./src/controllers/Cursos.js";
 import Empresa from "./src/controllers/Empresa.js";
 import Formacao from "./src/controllers/Formacao.js";
 import Matricula from "./src/controllers/Matricula.js";
-//import Turmas from "./src/controllers/Turmas.js";
+import Turmas from "./src/controllers/Turmas.js";
 
 dotenv.config();
 
@@ -23,5 +23,5 @@ Cursos.rotas(app);
 Empresa.rotas(app);
 Formacao.rotas(app)
 Matricula.rotas(app);
-//Turmas.rotas(app);
+Turmas.rotas(app);
 

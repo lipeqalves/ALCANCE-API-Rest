@@ -1,6 +1,6 @@
 import EmpresaModel from "../models/EmpresaModel.js"
-import ValidacoesEmpresa from "../services/ValidacoesEmpresa.js"
 import DatabaseEmpresaMetodos from "../DAO/DatabaseEmpresaMetodos.js"
+import ValidacoesEmpresa from "../services/ValidacoesEmpresa.js"
 
 class Empresa {
     static rotas(app) {
@@ -14,13 +14,12 @@ class Empresa {
             try {
                 const empresa = await DatabaseEmpresaMetodos.listarEmpresaPorId(req.params.id)
                 if (!empresa) {
-                    throw new Error("Empresa não encontrada com esse Id")
+                    throw new Error(`Empresa não encontrada com esse Id : ${req.params.id}`)
                 }
                 res.status(200).json(empresa)
             } catch (error) {
                 res.status(400).json(error.message)
             }
-
 
         })
 

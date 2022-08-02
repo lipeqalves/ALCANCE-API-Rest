@@ -1,6 +1,7 @@
+import TurmasModel from "../models/TurmasModel.js";
 import DatabaseTurmasMetodos from "../DAO/DatabaseTurmasMetodos.js";
 import ValidacoesTurmas from "../services/ValidacoesTurmas.js";
-import TurmasModel from "../models/TurmasModel.js";
+
 
 class Turmas{
   static rotas(app) {

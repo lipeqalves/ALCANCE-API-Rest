@@ -1,6 +1,6 @@
 import AlunoModel from "../models/AlunoModel.js"
-import ValidacoesAluno from "../services/ValidacoesAluno.js"
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js"
+import ValidacoesAluno from "../services/ValidacoesAluno.js"
 
 
 
@@ -25,7 +25,7 @@ class Alunos {
             }
         })
 
-        app.get("/alunos/id/:id", async (req, res) => {
+        app.get("/alunos/:id", async (req, res) => {
             try {
                 const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id);
                 if(!aluno){
@@ -33,19 +33,6 @@ class Alunos {
                 }
                 res.status(200).json(aluno)
             } catch (e) {
-                res.status(400).json({ Error: true, msg: e.message })
-            }
-        })
-        app.get("/aluno/:email", async (req, res) => {
-            try {
-                
-                const aluno = await DatabaseAlunoMetodos.listarAlunosPorEmail(...Object.values(req.params.email))
-               if(!aluno){
-                throw new Error(`Aluno não encontrado com esse email = ${req.params.email}`)
-               }
-                res.status(200).json(aluno)
-
-            } catch (error) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })

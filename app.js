@@ -2,7 +2,7 @@ import express from "express";
 import * as dotenv from "dotenv";
 import Alunos from "./src/controllers/Alunos.js";
 import Cursos from "./src/controllers/Cursos.js";
-import Turmas from "./src/controllers/Turmas.js";
+//import Turmas from "./src/controllers/Turmas.js";
 import Empresa from "./src/controllers/Empresa.js";
 import Formacao from "./src/controllers/Formacao.js"
 import Matricula from "./src/controllers/Matricula.js"

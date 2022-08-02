@@ -19,9 +19,11 @@ class Alunos {
 
         app.get("/alunos/:id", async (req, res) => {
             try {
-                const id = req.params.id;
-                const response = await DatabaseAlunoMetodos.listarAlunosPorId(id)
-                res.status(200).json(response)
+                const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id);
+                if(!aluno){
+                    throw new Error(`Aluno não encontrado com esse Id = ${req.params.id}`)
+                }
+                res.status(200).json(aluno)
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
@@ -40,7 +42,7 @@ class Alunos {
         app.post("/alunos", async (req, res) => {
             try {
                 const nome = req.body.nome;
-                 const tel = req.body.telefone
+                const tel = req.body.telefone
                 const email = req.body.email
                 const idade = req.body.idade
 

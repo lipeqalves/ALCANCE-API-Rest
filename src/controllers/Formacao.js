@@ -11,7 +11,6 @@ class Formacao {
             } catch (error) {
                 res.status(400).json(error.message)
             }
-
         })
 
         app.get("/formacao/:id", async (req, res) => {
@@ -39,7 +38,6 @@ class Formacao {
             } catch (error) {
                 res.status(400).json(error.message);
             }
-
         })
 
         app.put("/formacao/:id", async (req, res) => {
@@ -57,9 +55,7 @@ class Formacao {
                 }
             } catch (error) {
                 res.status(400).json({ Error: error.message });
-
             }
-
         })
 
         app.delete("/formacao/:id", async (req, res) => {
@@ -76,4 +72,5 @@ class Formacao {
         });
     }
 }
+
 export default Formacao

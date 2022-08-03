@@ -1,4 +1,4 @@
-import ValidacoesService from "../src/services/ValidacoesServices.js"
+import ValidacoesService from "../../src/services/ValidacoesServices.js";
 
 describe('Com argumentos validos', () => {
 

@@ -1,4 +1,4 @@
-import ValidacoesService from "../src/services/ValidacoesServices.js"
+import ValidacoesService from "../../src/services/ValidacoesServices.js";
 
 describe('Com argumentos validos', () => {
     test("valida se o cnpj esta no padrao: 11.222.333/4444-55", () => {

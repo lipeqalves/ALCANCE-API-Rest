@@ -1,4 +1,4 @@
-import ValidacoesService from "../src/services/ValidacoesServices.js"
+import ValidacoesService from "../../src/services/ValidacoesServices.js";
 
 describe('Com argumentos validos', () => {
     test("valida se o nome e sobrenome é maior que 4 e não é um numero", () => {

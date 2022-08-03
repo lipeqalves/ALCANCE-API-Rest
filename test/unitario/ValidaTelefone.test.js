@@ -1,4 +1,4 @@
-import ValidacoesService from "../src/services/ValidacoesServices.js"
+import ValidacoesService from "../../src/services/ValidacoesServices.js";
 
 describe('Com argumentos validos', () => {
     test("valida se o telefone esta no padrão: +55 (11) 98888-8888 / 9999-9999 / 21 98888-8888 / 5511988888888", () => {

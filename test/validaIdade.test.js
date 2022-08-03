@@ -1,4 +1,4 @@
-import ValidacoesAluno from "../services/ValidacoesAluno.js"
+import ValidacoesAluno from "../src/services/ValidacoesAluno.js"
 
 describe('Com argumentos validos', () => {
     test("valida se a idade está no intervalo", () => {

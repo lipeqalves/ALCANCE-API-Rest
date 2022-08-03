@@ -1,4 +1,4 @@
-import ValidacoesFormacao from "../services/ValidacoesFormacao.js";
+import ValidacoesFormacao from "../src/services/ValidacoesFormacao.js";
 
 describe('Com argumentos validos', () => {
     test("valida se estado esta em sigla e sem numero", () => {

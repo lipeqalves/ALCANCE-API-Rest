@@ -24,4 +24,3 @@ Empresa.rotas(app);
 Formacao.rotas(app)
 Matricula.rotas(app);
 Turmas.rotas(app);
-

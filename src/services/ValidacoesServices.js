@@ -5,7 +5,7 @@ class ValidacoesService {
    * @returns boolean
    */
   static validaNome(nome) {
-    if(!nome){
+    if (!nome) {
       return false
     }
     const str = parseInt(nome);
@@ -51,6 +51,19 @@ class ValidacoesService {
   static validaCnpj(cnpj) {
     const regexCnpj = /^(\d{2}\.?\d{3}\.?\d{3}\/?\d{4}-?\d{2})$/
     return regexCnpj.test(cnpj)
+  }
+
+  /**
+  * Metodo valida classificacao(identificacao da turma) da turma em 1 letra do alfabeto
+  * @param {string} classificacao 
+  * @returns boolean
+  */
+  static validaClassificacao(nome) {
+    if (!nome) {
+      return false
+    }
+    const str = parseInt(nome);
+    return nome.length == 1 && str != nome;
   }
 }
 

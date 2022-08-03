@@ -2,19 +2,15 @@ import AlunoModel from "../models/AlunoModel.js"
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js"
 import ValidacoesAluno from "../services/ValidacoesAluno.js"
 
-
-
-DatabaseAlunoMetodos.createTableAlunos();
 class Alunos {
     static rotas(app) {
-        app.get("/", async (req, res) => {
+        app.get("/", (req, res) => {
             try {
-                res.status(200).json({msg: "Bem Vindo!!!!"})
+                res.status(200).json({ msg: "Bem Vindo!!!!" })
             } catch (e) {
                 res.status(400).json({ error: true, msg: e.message })
             }
         })
-
 
         app.get("/alunos", async (req, res) => {
             try {
@@ -28,8 +24,8 @@ class Alunos {
         app.get("/alunos/:id", async (req, res) => {
             try {
                 const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id);
-                if(!aluno){
-                    throw new Error(`Aluno não encontrado com esse Id = ${req.params.id}`)
+                if (!aluno) {
+                    throw new Error(`Aluno não encontrado com esse Id:${req.params.id}`)
                 }
                 res.status(200).json(aluno)
             } catch (e) {
@@ -38,75 +34,66 @@ class Alunos {
         })
 
         app.post("/alunos", async (req, res) => {
-            
             try {
                 const validaAluno = ValidacoesAluno.validaAluno(...Object.values(req.body))
-
                 if (validaAluno) {
                     const aluno = new AlunoModel(...Object.values(req.body))
                     const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
                     res.status(201).json(response)
-
                 } else {
                     const validaNome = ValidacoesAluno.validaNome(req.body.nome)
                     const validaEmail = ValidacoesAluno.validaEmail(req.body.email)
-                    const validaTelefone = ValidacoesAluno.validaTelefone( req.body.telefone)
+                    const validaTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
                     const validaIdade = ValidacoesAluno.validaIdade(req.body.idade)
+                    const validaTurma = ValidacoesAluno.validaClassificacao(req.body.turma)
+                    const validaCurso = ValidacoesAluno.validaNome(req.body.curso)
 
                     if (!validaNome) {
-
-                        throw new Error(`Aluno não encontrado com esse nome = ${req.body.nome}`)
-                    } 
-                    else if (!validaEmail) {
-
-                        throw new Error(`Aluno não encontrado com esse email = ${req.body.email}`)
-
-                    }else if (!validaTelefone) {
-
-                        throw new Error(`Aluno não encontrado com esse telefone = ${ req.body.telefone}`)
-
-                    }else if (!validaIdade) {
-
-                        throw new Error(`Aluno não encontrado com esse idade = ${req.body.idade}`)
+                        throw new Error(`Revise sua requisição, nome do aluno ${req.body.nome} inválido`)
+                    } else if (!validaEmail) {
+                        throw new Error(`Revise sua requisição, email do aluno ${req.body.email} inválido`)
+                    } else if (!validaTelefone) {
+                        throw new Error(`Revise sua requisição, telefone do aluno ${req.body.telefone} inválido`)
+                    } else if (!validaIdade) {
+                        throw new Error(`Revise sua requisição, idade do aluno ${req.body.idade} inválida`)
+                    } else if (!validaTurma) {
+                        throw new Error(`Revise sua requisição, turma do aluno ${req.body.turma} inválida`)
+                    } else if (!validaCurso) {
+                        throw new Error(`Revise sua requisição, curso do aluno ${req.body.curso} inválido`)
                     }
                 }
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })
+
         app.put("/alunos/:id", async (req, res) => {
-            try {  
-              const validaAluno = ValidacoesAluno.validaAluno(...Object.values(req.body))
-
-                if (validaAluno) {
-
-                    const aluno = new AlunoModel(...Object.values(req.body))
-                    const response = await DatabaseAlunoMetodos.atualizaAluno(...Object.values(req.params.id), aluno)
-                    res.status(201).json(response)
-
+            try {
+                const alunoId = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id);
+                const validaNome = ValidacoesAluno.validaNome(req.body.nome)
+                const validaTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
+                const validaEmail = ValidacoesAluno.validaEmail(req.body.email)
+                const validaIdade = ValidacoesAluno.validaIdade(req.body.idade)
+                const validaTurma = ValidacoesAluno.validaClassificacao(req.body.turma)
+                const validaCurso = ValidacoesAluno.validaNome(req.body.curso)
+                if (!alunoId) {
+                    throw new Error(`Aluno com Id ${req.params.id} não existe`)
+                } else if (!validaNome) {
+                    throw new Error(`Nome:${req.body.nome} inválido, revise sua requisição`)
+                } else if (!validaEmail) {
+                    throw new Error(`Email:${req.body.email} inválido, revise sua requisição`)
+                } else if (!validaTelefone) {
+                    throw new Error(`Telefone:${req.body.telefone} inválido, revise sua requisição`)
+                } else if (!validaIdade) {
+                    throw new Error(`Idade:${req.body.idade} inválida, revise sua requisição`)
+                } else if (!validaTurma) {
+                    throw new Error(`Turma:${req.body.turma} inválida, revise sua requisição`)
+                } else if (!validaCurso) {
+                    throw new Error(`Curso:${req.body.curso} inválido, revise sua requisição`)
                 } else {
-
-                    const validaNome = ValidacoesAluno.validaNome(req.body.nome)
-                    const validaTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
-                    const validaEmail = ValidacoesAluno.validaEmail( req.body.email)
-                    const validaIdade = ValidacoesAluno.validaIdade(req.body.idade)
-
-                    if (!validaNome) {
-
-                        throw new Error(`Aluno não encontrado com esse nome = ${req.body.nome}`)
-                    } 
-                    else if (!validaEmail) {
-
-                        throw new Error(`Aluno não encontrado com esse email = ${req.body.email}`)
-
-                    }else if (!validaTelefone) {
-
-                        throw new Error(`Aluno não encontrado com esse telefone = ${ req.body.telefone}`)
-
-                    }else if (!validaIdade) {
-                        
-                        throw new Error(`Aluno não encontrado com esse idade = ${req.body.idade}`)
-                    }
+                    const aluno = new AlunoModel(...Object.values(req.body))
+                    const response = await DatabaseAlunoMetodos.atualizaAluno(req.params.id, aluno)
+                    res.status(201).json(response)
                 }
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
@@ -115,17 +102,16 @@ class Alunos {
 
         app.delete("/alunos/:id", async (req, res) => {
             try {
-                const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(...Object.values(req.params.id))
-                if(!aluno){
-                    throw new Error(`Aluno não encontrado com esse Id = ${req.params.id}`)
+                const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id)
+                if (!aluno) {
+                    throw new Error(`Aluno não encontrado com esse Id:${req.params.id}`)
                 }
-                const response = await DatabaseAlunoMetodos.excluirAluno(...Object.values(req.params.id))
+                const response = await DatabaseAlunoMetodos.excluirAluno(req.params.id)
                 res.status(201).json(response)
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })
-
     }
 }
 

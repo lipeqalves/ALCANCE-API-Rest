@@ -2,20 +2,6 @@ import ValidacoesService from "./ValidacoesServices.js";
 
 class ValidacoesTurmas extends ValidacoesService {
   /**
-   * Metodo valida classificacao(identificacao da turma) da turma em 1 letra do alfabeto
-   * @param {string} classificacao 
-   * @returns boolean
-   */
-  static validaClassificacao(nome) {
-    if (!nome) {
-      return false
-    }
-    const str = parseInt(nome);
-    return nome.length == 1 && str != nome;
-
-  }
-
-  /**
    * Metodo valida classificacao, data de inicio da turma, data formatura, nome professor e nome curso da entidade Turma
    * @param {string} classificacao 
    * @param {string} data_inicio 

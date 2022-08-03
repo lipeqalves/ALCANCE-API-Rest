@@ -5,25 +5,25 @@ const alunos = [
         nome: "Filipe",
         email: "aluno@test.br",
         telefone: "8199999999",
-        idade:18,
-        turma: "01",
+        idade: "20",
+        turma: "A",
         curso: "Informática Avançada"
     },
     {
         nome: "Juliana",
         email: "aluno@test.br",
         telefone: "8199999999",
-        idade:18,
-        turma: "01",
-        curso: "Programação Neurolinguistica"
+        idade: "16",
+        turma: "B",
+        curso: "Informática Básica"
     },
     {
         nome: "Roberta",
         email: "aluno@test.br",
         telefone: "8199999999",
-        idade:18,
-        turma: "01",
-        curso: "Programação Neurolinguistica"
+        idade: "18",
+        turma: "C",
+        curso: "Informática intermediária"
     }
 ]
 

@@ -13,19 +13,25 @@ class Professores {
       res.status(200).json(response);
     });
 
-    // app.post("/professores", async (req, res) => {
-    //   try {
-    //     const validaProfessores = new ProfessoresModel(
-    //       ...Object.values(req.body)
-    //     );
-    //     const response = await DatabaseProfessoresMetodos.listarProfessores(
-    //       validaProfessores
-    //     );
-    //     res.status(201).json(response);
-    //   } catch (error) {
-    //     res.status(400).json(error.message);
-    //   }
-    // });
+    app.post("/professores", async(req, res) =>{
+        const profModel = new ProfessoresModel(...Object.values(req.body))
+        const response = await DatabaseProfessoresMetodos.adicionaProfessor(profModel)
+        res.status(201).json(response);
+    })
+
+//     app.post("/professores", async (req, res) => {
+//       try {
+//         const validaProfessores = new ProfessoresModel(
+//           ...Object.values(req.body)
+//         );
+//         const response = await DatabaseProfessoresMetodos.listarProfessores(
+//           validaProfessores
+//         );
+//         res.status(201).json(response);
+//       } catch (error) {
+//         res.status(400).json(error.message);
+//       }
+//     });
   }
 }
 

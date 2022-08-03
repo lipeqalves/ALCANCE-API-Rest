@@ -1,4 +1,3 @@
-import Alunos from "../controllers/Alunos.js";
 
 import DatabaseProfessoresMetodos from "../DAO/DatabaseProfessoresMetodos.js";
 
@@ -23,8 +22,8 @@ try {
     console.log(`Tabela professores: ${response}`)
 
 
-    professores.forEach(async professores =>{
-        const response = await DatabaseProfessoresMetodos.adicionaProfessor(professores)
+    professores.forEach(async professor =>{
+        const response = await DatabaseProfessoresMetodos.adicionaProfessor(professor)
         console.log(response)
     })
 } catch (error) {

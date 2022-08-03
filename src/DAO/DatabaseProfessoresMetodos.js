@@ -6,7 +6,7 @@ class DatabaseProfessoresMetodos extends DAO {
 
     const query = 
     
-    `CREATE TABLE IS NOT EXISTS professores (
+    `CREATE TABLE IF NOT EXISTS professores (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome VARCHAR,
             email VARCHAR,
@@ -25,21 +25,21 @@ class DatabaseProfessoresMetodos extends DAO {
   }
 
 
-  // static async listarProfessores() {
-  //   try {
-  //     const query = `SELECT * FROM professores`;
-  //     const response = await this.listarProfessores(query);
-  //     return response;
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  static async listarProfessores() {
+    try {
+      const query = `SELECT * FROM professores`;
+      const response = await this.listarTodos(query);
+      return response;
+    } catch (e) {
+      console.log(e);
+    }
+  }
 
-  // static async listarProfessoresPorId(id){
-  //   const query = `SELECT * FROM professores WHERE ID  = ?`;
-  //   const response = await this.listarPorId(id, query);
-  //   return response;
-  // }
+  static async listarProfessoresPorId(id){
+    const query = `SELECT * FROM professores WHERE ID  = ?`;
+    const response = await this.listarPorId(id, query);
+    return response;
+  }
 
 }
 

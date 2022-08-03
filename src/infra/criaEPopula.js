@@ -20,4 +20,4 @@ import "./CriaPopulaEmpresa.js";
 import "./criaPopulaFormacao.js"
 import "./CriaPopulaMatricula.js";
 import "./CriaPopulaTurmas.js";
-import "./criaEPopulaProfessores.js"
+import "./criaEPopulaProfessores.js";

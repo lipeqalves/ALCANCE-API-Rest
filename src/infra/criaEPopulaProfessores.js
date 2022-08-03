@@ -15,7 +15,8 @@ const professores = [
         telefone: "8938399283",
         disciplina: "Informática Avançada"
     }
-]
+];
+
 
 try {
     const response = await DatabaseProfessoresMetodos.createTableProfessores()

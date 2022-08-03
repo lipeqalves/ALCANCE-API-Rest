@@ -1,29 +1,26 @@
 import DatabaseMatriculaMetodos from "../DAO/DatabaseMatriculaMetodos.js";
-//import DAO from "../DAO/DAO.js";
 
 const matriculas = [{
     aluno: "Filipe",
     inicio: "29/03/2022",
-    numero_matricula: "8199999999",
-    turma: "01",
-    curso: "Informática Avançada"
+    numero_matricula: "123456",
+    turma: "A",
+    curso: "Informática Básica"
 },
 {
     aluno: "Juliana",
     inicio: "29/03/2022",
-    numero_matricula: "8199999999",
-    turma: "01",
-    curso: "Informática Avançada"
+    numero_matricula: "654321",
+    turma: "B",
+    curso: "Informática Intermediária"
 },
 {
     aluno: "Roberta",
     inicio: "29/23/2022",
-    numero_matricula: "8199999999",
-    turma: "01",
+    numero_matricula: "564321",
+    turma: "C",
     curso: "Informática Avançada"
-}
-]
-
+}]
 
 try {
     const response = await DatabaseMatriculaMetodos.createTableMatricula()

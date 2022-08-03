@@ -8,8 +8,11 @@ class ValidacoesFormacao extends ValidacoesService {
      * @returns boolean
      */
     static validaEstado(estado) {
+        if(!estado){
+            return false
+        }
         const str = parseInt(estado);
-        return str.length === 2 && str != estado;
+        return estado.length == 2 && str != estado;
     }
 
     /**

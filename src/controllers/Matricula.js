@@ -15,9 +15,9 @@ class Matricula {
 
         app.get("/matriculas/:id", async (req, res) => {
             try {
-                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
-                if(!matricula){
-                    throw new Error(`Matricula com ID = ${req.params.id} não encontrada`); 
+                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id)
+                if (!matricula) {
+                    throw new Error(`Matricula com ID = ${req.params.id} não encontrada`);
                 }
                 res.status(200).json(matricula)
             } catch (e) {
@@ -27,29 +27,32 @@ class Matricula {
 
         app.post("/matriculas", async (req, res) => {
             try {
-                
-                 const validaMatricula = ValidacoesMatricula.validaMatricula(...Object.values(req.body))
-                 if(validaMatricula){
-                const matricula = new MatriculaModel(...Object.values(req.body))
-                const response = await DatabeseMatriculaMetodos.adicionaMatriculas(matricula)
-                res.status(201).json(response)
-                }else{
-                  res.status(400).json({Erro:"Erro"})
+                const validaMatricula = ValidacoesMatricula.validaMatricula(...Object.values(req.body))
+                if (validaMatricula) {
+                    const matricula = new MatriculaModel(...Object.values(req.body))
+                    const response = await DatabeseMatriculaMetodos.adicionaMatriculas(matricula)
+                    res.status(201).json(response)
+                } else {
+                    throw new Error("Requisição incorreta, revise o corpo da mesma");
                 }
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })
+
         app.put("/matriculas/:id", async (req, res) => {
+            const validaMatricula = ValidacoesMatricula.validaMatricula(...Object.values(req.body))
             try {
-                const validaMatricula = ValidacoesMatricula.validaMatricula(...Object.values(req.body))
-                if(validaMatricula){
-                const matricula = new MatriculaModel(...Object.values(req.body))
-                const response = await DatabeseMatriculaMetodos.atualizaMatricula(...Object.values(req.params.id), matricula)
-                res.status(201).json(response)
-                }else{
-                    res.status(400).json({Erro:"Erro"})
-                  }
+                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
+                if (!matricula) {
+                    throw new Error(`Matricula com Id:${req.params.id} não existe`)
+                } else if (validaMatricula) {
+                    const matricula = new MatriculaModel(...Object.values(req.body))
+                    const response = await DatabeseMatriculaMetodos.atualizaMatricula(req.params.id, matricula)
+                    res.status(201).json(response)
+                } else {
+                    throw new Error("Requisição inválida, revise o corpo da mesma");
+                }
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
@@ -57,21 +60,17 @@ class Matricula {
 
         app.delete("/matriculas/:id", async (req, res) => {
             try {
-                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
-                if(!matricula){
-                    throw new Error("Matricula com ID = ${req.params.id} não encontrada encontrada");
+                const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id);
+                if (!matricula) {
+                    throw new Error(`Matricula com ID:${req.params.id} não encontrada`);
                 }
-                const response = await DatabeseMatriculaMetodos.excluirMatricula(...Object.values(req.params.id))
+                const response = await DatabeseMatriculaMetodos.excluirMatricula(req.params.id)
                 res.status(201).json(response)
-                
-            } catch (error) {
+            } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })
-
     }
 }
-
-
 
 export default Matricula

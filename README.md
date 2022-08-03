@@ -4,15 +4,20 @@
 
 ![Design sem nome](https://user-images.githubusercontent.com/65184920/182678908-a75bcd97-0905-4223-bb11-5db7e16f181e.png)
 
+[Projeto](#-sobre-o-projeto) - [Instalação](#-instalação-da-aplicação) - [Executar Projeto](#-execução-do-projeto) - [Banco de Dados](#-informações-sobre-o-banco-de-dados) - [Testes](#-testes) - [Entidades](#entidades)
+
 </div>
 
 ## 📕 Sobre o Projeto 
 
 <p>A Startup Alcance é a proposta de um MVP que tem por objetivo oferecer cursos profissionalizantes para jovens de baixa renda dispostos a se qualificar para o mercado de trabalho. Para simular o gerenciamento dessa escola criamos uma aplicação no ambiente back-end utilizando Node.js com framework Express, banco de dados relacional SQLite, padrão do tipo REST, padrão MVC e o padrão DAO na construção do projeto.</p>
 
-## 🛠 Instalação da Aplicação  
+![image](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![image](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white) ![image](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![image](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![image](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white)
+
+
+##  🔧 Instalação da Aplicação  
  
- - Abra o terminal em uma pasta de sua preferencia e rode os seguintes comandos:
+ - Abra o terminal em uma pasta de sua preferência e adicione os seguintes comandos:
  
 ```
 git clone https://github.com/lipeqalves/projetoM4-API-Rest.git 
@@ -30,14 +35,16 @@ cd projetoM4-API-Rest
 npm i
 ```
 
-- Inicialização do projeto utilize o comando:
+##  🎲 Execução do Projeto 
+
+- Para inicialização do projeto utilize o comando:
 
 ```
 npm start
 ```
 
 ## 🗄 Informações sobre o banco de dados:
-<p> Foi desenvoldido uma tarefa para popular o banco de dados e auxiliar na validação. Utilize o seguinte comando para execução: </p>
+<p> Foi desenvolvido uma tarefa para popular o banco de dados e auxiliar na validação. Utilize o seguinte comando para execução: </p>
 
 ```
 npm run infra
@@ -53,6 +60,8 @@ npm test
 <div align='center' >
 
 # Entidades
+
+[Alunos](#alunos) - [Cursos](#cursos) - [Empresas](#empresa) - [Formação](#formação) - [Matrículas](#matriculas) - [Turmas](#turmas)
 
 </div>
 
@@ -841,6 +850,16 @@ http://localhost:3000/turmas/3
         </sub>
       </a>
     </td>
+    	<td align="center">
+      <a href="https://www.linkedin.com/in/lucianopaiva/">
+        <img src="https://media-exp1.licdn.com/dms/image/C4D03AQESrOp06ojulw/profile-displayphoto-shrink_400_400/0/1658757681285?e=1665014400&v=beta&t=I5ty-PWgT_B1uf6acOn4IICX5g5zHT57K6UHPTzHOy0" width="100px;" alt="Foto de Luciano no GitHub"/><br>
+        <sub>
+          <b>Luciano Paiva</b>
+        </sub>
+      </a>
+    </td>
   </tr>
 </table>
 </div>	
+
+[⬆ Voltar ao Topo](#projeto-final-módulo-4---api-rest)

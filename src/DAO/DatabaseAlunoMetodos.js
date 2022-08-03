@@ -12,6 +12,7 @@ class DatabaseAlunoMetodos extends DAO {
             nome VARCHAR,
             email  VARCHAR,
             telefone VARCHAR,
+            idade INTEGER,
             turma VARCHAR,
             curso VARCHAR
         )`
@@ -36,20 +37,15 @@ class DatabaseAlunoMetodos extends DAO {
         return response;
     }
 
-    static async listarAlunosPorEmail(email) {
-        const query = `SELECT * FROM alunos WHERE EMAIL = ?`;
-        const response = await this.listarPorEmail(email, query);
-        return response;
-    }
 
     static async adicionaAluno(aluno) {
-        const query = `INSERT INTO alunos (nome, email, telefone, turma, curso) VALUES (?,?,?,?,?)`
+        const query = `INSERT INTO alunos (nome, email, telefone, idade, turma, curso) VALUES (?,?,?,?,?,?)`
         const response = await this.inserir(aluno, query)
         return response;
     }
     
     static async atualizaAluno(id, aluno) {
-        const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?, turma = ?, curso= ?  WHERE ID = ? `
+        const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?,idade = ?, turma = ?, curso= ?  WHERE ID = ? `
         const response = await this.atualizaPorId(aluno, id, query)
         return response;
     }

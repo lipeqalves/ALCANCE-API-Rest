@@ -1,40 +1,40 @@
 import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js";
-//import DAO from "../DAO/DAO.js";
 
 const alunos = [
     {
         nome: "Filipe",
         email: "aluno@test.br",
         telefone: "8199999999",
-        turma: "01",
+        idade: "20",
+        turma: "A",
         curso: "Informática Avançada"
     },
     {
         nome: "Juliana",
         email: "aluno@test.br",
         telefone: "8199999999",
-        turma: "01",
-        curso: "Programação Neurolinguistica"
+        idade: "16",
+        turma: "B",
+        curso: "Informática Básica"
     },
     {
         nome: "Roberta",
         email: "aluno@test.br",
         telefone: "8199999999",
-        turma: "01",
-        curso: "Programação Neurolinguistica"
+        idade: "18",
+        turma: "C",
+        curso: "Informática intermediária"
     }
 ]
 
 try {
-    //await DAO.ativaChavesEstrangeiras()
-
     const response = await DatabaseAlunoMetodos.createTableAlunos()
     console.log(`Tabela Alunos: ${response}`)
 
     alunos.forEach(async aluno => {
         const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
-        console.log(response)
     })
+    console.log(`Alunos: cadastrados com sucesso!`)
 } catch (e) {
     console.log(e.message)
 }

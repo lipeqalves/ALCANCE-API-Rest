@@ -2,14 +2,15 @@ import DAO from "./DAO.js";
 
 class DatabaseTurmasMetodos extends DAO {
   static async createTableTurmas() {
-    const query = `CREATE TABLE IF NOT EXISTS turmas(
+    const query = 
+            `CREATE TABLE IF NOT EXISTS turmas(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             classificacao VARCHAR,
             data_inicio VARCHAR,
             data_formatura VARCHAR,
             professor VARCHAR,
             curso VARCHAR
-        )`;
+        )`
 
     const response = await this.createTable(query);
     return response;

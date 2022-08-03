@@ -2,7 +2,7 @@ import DAO from "./DAO.js"
 
 class DatabaseEmpresaMetodos extends DAO {
     static async createTableEmpresa() {
-        const query =  `CREATE TABLE IF NOT EXISTS empresa (
+        const query = `CREATE TABLE IF NOT EXISTS empresa (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             empresa VARCHAR,
             cnpj  VARCHAR,

@@ -4,9 +4,7 @@ class DatabaseMatriculaMetodos extends DAO {
 
     static async createTableMatricula() {
 
-
         const query =
-
             `CREATE TABLE IF NOT EXISTS matriculas (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             aluno VARCHAR,
@@ -53,8 +51,6 @@ class DatabaseMatriculaMetodos extends DAO {
         const response = await this.deletaPorId(query, id)
         return response;
     }
-    
-
 }
 
-    export default DatabaseMatriculaMetodos;
+export default DatabaseMatriculaMetodos;

@@ -6,6 +6,7 @@ import "./CriaPopulaTurmas.js";
 import "./CriaPopulaEmpresa.js";
 import "./criaPopulaFormacao.js"
 import "./CriaPopulaMatricula.js";
+import "./criaEPopulaProfessores.js";
 
 
 try{

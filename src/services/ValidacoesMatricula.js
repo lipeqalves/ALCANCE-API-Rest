@@ -1,13 +1,13 @@
-import ValidacoesTurmas from "./ValidacoesTurmas.js";
+import ValidacoesService from "./ValidacoesServices.js";
 
-class ValidacoesMatricula extends ValidacoesTurmas {
+class ValidacoesMatricula extends ValidacoesService {
     /**
      * Metodo verifica numeros e quantidade de caracteres igual a 6;
      * @param {string} num 
      * @returns boolean
      */
     static validaNumMatricula(n) {
-        return !isNaN(parseFloat(n)) && n.length == 6 ;
+        return !isNaN(parseFloat(n)) && n.length == 6;
     }
 
     /**

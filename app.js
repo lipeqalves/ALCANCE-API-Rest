@@ -27,5 +27,4 @@ Matricula.rotas(app);
 Professores.rotas(app);
 Turmas.rotas(app);
 
-
 export default app

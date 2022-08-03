@@ -69,7 +69,6 @@ class Cursos {
             } catch (error) {
                 res.status(404).json({ Error: error.message })
             }
-
         })
     }
 }

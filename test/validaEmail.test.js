@@ -1,4 +1,4 @@
-import ValidacoesAluno from "../services/ValidacoesAluno.js"
+import ValidacoesAluno from "../src/services/ValidacoesAluno"
 
 describe('Com argumentos validos', () => {
     test("valida se o e-mail está no padrão string@string.com", () => {

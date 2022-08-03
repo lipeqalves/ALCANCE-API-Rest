@@ -1,4 +1,4 @@
-import ValidacoesCursos from "../services/ValidacoesCursos.js";
+import ValidacoesCursos from "../src/services/ValidacoesCursos.js";
 
 describe('Com argumentos validos', () => {
     test("Metodo valida horas_duracao da entidade cursos", () => {

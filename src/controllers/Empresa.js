@@ -17,7 +17,7 @@ class Empresa {
             try {
                 const empresa = await DatabaseEmpresaMetodos.listarEmpresaPorId(req.params.id)
                 if (!empresa) {
-                    throw new Error(`Empresa não encontrada com esse Id : ${req.params.id}`)
+                    throw new Error(`Empresa não encontrada com esse Id ${req.params.id}`)
                 }
                 res.status(200).json(empresa)
             } catch (error) {

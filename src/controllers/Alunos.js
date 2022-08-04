@@ -79,17 +79,17 @@ class Alunos {
                 if (!alunoId) {
                     throw new Error(`Aluno com Id ${req.params.id} não existe`)
                 } else if (!validaNome) {
-                    throw new Error(`Nome:${req.body.nome} inválido, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, nome do aluno ${req.body.nome} inválido`)
                 } else if (!validaEmail) {
-                    throw new Error(`Email:${req.body.email} inválido, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, email do aluno ${req.body.email} inválido`)
                 } else if (!validaTelefone) {
-                    throw new Error(`Telefone:${req.body.telefone} inválido, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, telefone do aluno ${req.body.telefone} inválido`)
                 } else if (!validaIdade) {
-                    throw new Error(`Idade:${req.body.idade} inválida, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, idade do aluno ${req.body.idade} inválida`)
                 } else if (!validaTurma) {
-                    throw new Error(`Turma:${req.body.turma} inválida, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, turma do aluno ${req.body.turma} inválida`)
                 } else if (!validaCurso) {
-                    throw new Error(`Curso:${req.body.curso} inválido, revise sua requisição`)
+                    throw new Error(`Revise sua requisição, curso do aluno ${req.body.curso} inválido`)
                 } else {
                     const aluno = new AlunoModel(...Object.values(req.body))
                     const response = await DatabaseAlunoMetodos.atualizaAluno(req.params.id, aluno)
@@ -104,7 +104,7 @@ class Alunos {
             try {
                 const aluno = await DatabaseAlunoMetodos.listarAlunosPorId(req.params.id)
                 if (!aluno) {
-                    throw new Error(`Aluno não encontrado com esse Id:${req.params.id}`)
+                    throw new Error(`Aluno não encontrado com esse Id ${req.params.id}`)
                 }
                 const response = await DatabaseAlunoMetodos.excluirAluno(req.params.id)
                 res.status(201).json(response)

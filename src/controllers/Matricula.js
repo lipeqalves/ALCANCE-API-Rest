@@ -17,7 +17,7 @@ class Matricula {
             try {
                 const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id)
                 if (!matricula) {
-                    throw new Error(`Matricula com ID = ${req.params.id} não encontrada`);
+                    throw new Error(`Matricula com Id ${req.params.id} não encontrada`);
                 }
                 res.status(200).json(matricula)
             } catch (e) {
@@ -45,7 +45,7 @@ class Matricula {
             try {
                 const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(...Object.values(req.params.id))
                 if (!matricula) {
-                    throw new Error(`Matricula com Id:${req.params.id} não existe`)
+                    throw new Error(`Matricula com Id ${req.params.id} não existe`)
                 } else if (validaMatricula) {
                     const matricula = new MatriculaModel(...Object.values(req.body))
                     const response = await DatabeseMatriculaMetodos.atualizaMatricula(req.params.id, matricula)
@@ -62,7 +62,7 @@ class Matricula {
             try {
                 const matricula = await DatabeseMatriculaMetodos.listarMatriculaPorId(req.params.id);
                 if (!matricula) {
-                    throw new Error(`Matricula com ID:${req.params.id} não encontrada`);
+                    throw new Error(`Matricula com Id ${req.params.id} não encontrada`);
                 }
                 const response = await DatabeseMatriculaMetodos.excluirMatricula(req.params.id)
                 res.status(201).json(response)

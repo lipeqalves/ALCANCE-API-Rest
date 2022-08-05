@@ -4,13 +4,15 @@
 
 ![Design sem nome](https://user-images.githubusercontent.com/65184920/182678908-a75bcd97-0905-4223-bb11-5db7e16f181e.png)
 
-[Projeto](#-sobre-o-projeto) - [Instalação](#-instalação-da-aplicação) - [Executar Projeto](#-execução-do-projeto) - [Banco de Dados](#-informações-sobre-o-banco-de-dados) - [Testes](#-testes) - [Entidades](#entidades)
+[Projeto](#-sobre-o-projeto) - [Instalação](#-instalação-da-aplicação) - [Execução](#-execução-do-projeto) - [Banco de Dados](#-informações-sobre-o-banco-de-dados) - [Testes](#-testes) - [Entidades](#entidades) - [Desenvolvedores](#--desenvolvedores-do-projeto)
 
 </div>
 
 ## 📕 Sobre o Projeto 
 
 <p>A Startup Alcance é a proposta de um MVP que tem por objetivo oferecer cursos profissionalizantes para jovens de baixa renda dispostos a se qualificar para o mercado de trabalho. Para simular o gerenciamento dessa escola criamos uma aplicação no ambiente back-end utilizando Node.js com framework Express, banco de dados relacional SQLite, padrão do tipo REST, padrão MVC e o padrão DAO na construção do projeto.</p>
+
+Este projeto encontra-se hospedado no heroku: [Alcance](https://alcance-api-rest.herokuapp.com/alunos)
 
 ![image](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![image](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white) ![image](https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white) ![image](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge) ![image](https://img.shields.io/badge/Jest-323330?style=for-the-badge&logo=Jest&logoColor=white)
 
@@ -20,13 +22,13 @@
  - Abra o terminal em uma pasta de sua preferência e adicione os seguintes comandos:
  
 ```
-git clone https://github.com/lipeqalves/projetoM4-API-Rest.git 
+git clone https://github.com/lipeqalves/ALCANCE-API-Rest.git
 ```
 
 - Para entrar na pasta do projeto:
 
 ``` 
-cd projetoM4-API-Rest
+cd ALCANCE-API-Rest
 ```
 
 - Instale as dependências necessárias com o seguinte comando:
@@ -57,6 +59,9 @@ npm run infra
 npm test
 ```
 
+### ❌ Observações
+
+Houve tentativas de testes de integração neste projeto e se encontram nas branchs: [test-integracao-aluno](https://github.com/lipeqalves/ALCANCE-API-Rest/tree/test-integracao-aluno) e [test-integracao](https://github.com/lipeqalves/ALCANCE-API-Rest/tree/test-integracao)
 <div align='center' >
 
 # Entidades
@@ -820,7 +825,7 @@ http://localhost:3000/turmas/3
   <tr>
     <td align="center">
       <a href="https://www.linkedin.com/in/filipeqalves/">
-        <img src="https://media-exp1.licdn.com/dms/image/D4D35AQGZkNLLwWnjSA/profile-framedphoto-shrink_800_800/0/1658175346093?e=1660168800&v=beta&t=m1mWI5S8tNb-t_5vsx02LW_Uc9WW2o-FAfvo8bjmi1w" width="100px;" alt="Foto de Filipe no GitHub"/><br>
+        <img src="https://avatars.githubusercontent.com/u/102266909?v=4" width="100px;" alt="Foto de Filipe no GitHub"/><br>
         <sub>
           <b>Filipe Alves</b>
         </sub>

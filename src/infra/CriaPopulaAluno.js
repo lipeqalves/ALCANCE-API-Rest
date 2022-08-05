@@ -31,10 +31,13 @@ try {
     const response = await DatabaseAlunoMetodos.createTableAlunos()
     console.log(`Tabela Alunos: ${response}`)
 
-    alunos.forEach(async aluno => {
-        const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
-    })
-    console.log(`Alunos: cadastrados com sucesso!`)
+    if (process.env.NODE_ENV != "test") {
+        alunos.forEach(async aluno => {
+            const response = await DatabaseAlunoMetodos.adicionaAluno(aluno)
+        })
+        console.log(`Alunos: cadastrados com sucesso!`)
+    }
+    
 } catch (e) {
     console.log(e.message)
 }

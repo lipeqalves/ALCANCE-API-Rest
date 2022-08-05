@@ -5,10 +5,11 @@
   "main": "app.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "test:watch": "node --experimental-vm-modules node_modules/jest/bin/jest.js --watch",
     "infra": "npm run db:remove && node ./src/infra/criaEPopula.js",
-    "db:remove": "rm ./src/infra/database.db",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "db:remove": "rm ./src/infra/*-database.db",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "grupo3",

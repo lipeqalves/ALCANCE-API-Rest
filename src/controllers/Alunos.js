@@ -107,8 +107,9 @@ class Alunos {
                     throw new Error(`Aluno não encontrado com esse Id ${req.params.id}`)
                 }
                 const response = await DatabaseAlunoMetodos.excluirAluno(req.params.id)
-                res.status(201).json(response)
+                res.status(204).json(response)
             } catch (e) {
+                console.log(e)
                 res.status(400).json({ Error: true, msg: e.message })
             }
         })

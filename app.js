@@ -12,15 +12,15 @@ import cors from "cors"
 dotenv.config();
 
 const port = process.env.PORT || 3000;
-const cors = cors()
+
 const app = express();
 
-
+app.use(cors())
 
 app.listen(port, () => {
   console.log(`Servidor escutando em http://localhost:${port}`);
 });
-app.use(cors)
+
 app.use(express.json());
 
 Alunos.rotas(app);

@@ -7,16 +7,20 @@ import Formacao from "./src/controllers/Formacao.js";
 import Matricula from "./src/controllers/Matricula.js";
 import Professores from "./src/controllers/Professores.js";
 import Turmas from "./src/controllers/Turmas.js";
+import cors from "cors"
 
 dotenv.config();
 
 const port = process.env.PORT || 3000;
+const cors = cors()
 const app = express();
+
+
 
 app.listen(port, () => {
   console.log(`Servidor escutando em http://localhost:${port}`);
 });
-
+app.use(cors)
 app.use(express.json());
 
 Alunos.rotas(app);

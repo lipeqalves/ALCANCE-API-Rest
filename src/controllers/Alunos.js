@@ -44,9 +44,6 @@ class Alunos {
                     const validaNome = ValidacoesAluno.validaNome(req.body.nome)
                     const validaEmail = ValidacoesAluno.validaEmail(req.body.email)
                     const validaTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
-                    const validaIdade = ValidacoesAluno.validaIdade(req.body.idade)
-                    const validaTurma = ValidacoesAluno.validaClassificacao(req.body.turma)
-                    const validaCurso = ValidacoesAluno.validaNome(req.body.curso)
 
                     if (!validaNome) {
                         throw new Error(`Revise sua requisição, nome do aluno ${req.body.nome} inválido`)
@@ -54,13 +51,7 @@ class Alunos {
                         throw new Error(`Revise sua requisição, email do aluno ${req.body.email} inválido`)
                     } else if (!validaTelefone) {
                         throw new Error(`Revise sua requisição, telefone do aluno ${req.body.telefone} inválido`)
-                    } else if (!validaIdade) {
-                        throw new Error(`Revise sua requisição, idade do aluno ${req.body.idade} inválida`)
-                    } else if (!validaTurma) {
-                        throw new Error(`Revise sua requisição, turma do aluno ${req.body.turma} inválida`)
-                    } else if (!validaCurso) {
-                        throw new Error(`Revise sua requisição, curso do aluno ${req.body.curso} inválido`)
-                    }
+                    } 
                 }
             } catch (e) {
                 res.status(400).json({ Error: true, msg: e.message })
@@ -73,9 +64,7 @@ class Alunos {
                 const validaNome = ValidacoesAluno.validaNome(req.body.nome)
                 const validaTelefone = ValidacoesAluno.validaTelefone(req.body.telefone)
                 const validaEmail = ValidacoesAluno.validaEmail(req.body.email)
-                const validaIdade = ValidacoesAluno.validaIdade(req.body.idade)
-                const validaTurma = ValidacoesAluno.validaClassificacao(req.body.turma)
-                const validaCurso = ValidacoesAluno.validaNome(req.body.curso)
+                
                 if (!alunoId) {
                     throw new Error(`Aluno com Id ${req.params.id} não existe`)
                 } else if (!validaNome) {
@@ -84,12 +73,6 @@ class Alunos {
                     throw new Error(`Revise sua requisição, email do aluno ${req.body.email} inválido`)
                 } else if (!validaTelefone) {
                     throw new Error(`Revise sua requisição, telefone do aluno ${req.body.telefone} inválido`)
-                } else if (!validaIdade) {
-                    throw new Error(`Revise sua requisição, idade do aluno ${req.body.idade} inválida`)
-                } else if (!validaTurma) {
-                    throw new Error(`Revise sua requisição, turma do aluno ${req.body.turma} inválida`)
-                } else if (!validaCurso) {
-                    throw new Error(`Revise sua requisição, curso do aluno ${req.body.curso} inválido`)
                 } else {
                     const aluno = new AlunoModel(...Object.values(req.body))
                     const response = await DatabaseAlunoMetodos.atualizaAluno(req.params.id, aluno)

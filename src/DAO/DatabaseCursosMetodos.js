@@ -5,6 +5,7 @@ class DatabaseCursosMetodos extends DAO {
         const query = `CREATE TABLE IF NOT EXISTS cursos(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             nome VARCHAR,
+            image VARCHAR,
             horas_duracao VARCHAR
         )`
 
@@ -13,7 +14,7 @@ class DatabaseCursosMetodos extends DAO {
     }
 
     static async inserirCursos(curso){
-        const query = `INSERT INTO cursos (nome, horas_duracao) VALUES (?,?)`
+        const query = `INSERT INTO cursos (nome, image, horas_duracao) VALUES (?,?,?)`
         const response = await this.inserir(curso, query)
         return response
     }
@@ -31,7 +32,7 @@ class DatabaseCursosMetodos extends DAO {
     }
 
     static async atualizaCursoPorId(id, cursos) {
-        const query = `UPDATE cursos SET (nome, horas_duracao) = (?, ?) WHERE id = ?`
+        const query = `UPDATE cursos SET (nome, image, horas_duracao ) = (?, ?, ?) WHERE id = ?`
         const response = await this.atualizaPorId(cursos, id, query)
         return response;
     }

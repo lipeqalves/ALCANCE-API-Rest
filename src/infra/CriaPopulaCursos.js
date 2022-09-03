@@ -14,7 +14,7 @@ const cursos = [{
     descricao: "O curso de Informatica básica tem como objetivo"
 }, {
     nome: "Introdução a Metodologia Àgil",
-    image: "https://fluxoconsultoria.poli.ufrj.br/wp-content/uploads/2015/07/scrum-palestra-banner-768x411.png",
+    image: "https://miro.medium.com/max/1400/1*BIWWVh_1g7g_ZBC7XNrWQg.jpeg",
     descricao: "O curso de Introdução a Metodologia Àgil tem como objetivo"
 },{
     nome: "Introdução a Lógica de Programação",

@@ -1,17 +1,25 @@
 import DatabaseCursosMetodos from "../DAO/DatabaseCursosMetodos.js"
 
 const cursos = [{
-    nome: "Informática Avançada",
-    image: "https://alonza.com.br/o-que-e-react-native/",
-    horas_duracao: "80"
+    nome: "Inglês básico ao avançado",
+    image: "https://inglesbasico.com.br/wp-content/uploads/2020/04/aprenda_ingles_online_ingles_basico.jpg",
+    descricao: "O curso de Inglês básico ao avançado tem como objetivo"
 }, {
-    nome: "Gestão Financeira",
-    image: "https://pt.m.wikipedia.org/wiki/Ficheiro:React-icon.svg",
-    horas_duracao: "20"
+    nome: "Excel básico ao avançado ",
+    image: "https://realedados.com.br/wp-content/uploads/2020/02/excel.jpg",
+    descricao: "O curso de Excel básico ao avançado tem como objetivo"
+},{
+    nome: "Informatica básica",
+    image: "https://escolalbk.com.br/wp-content/uploads/2021/10/Informatica-Basica-1024x1024.jpg",
+    descricao: "O curso de Informatica básica tem como objetivo"
 }, {
-    nome: "Programação Neurolinguistica",
-    image: "../assets/js-badge.svg",
-    horas_duracao: "10"
+    nome: "Introdução a Metodologia Àgil",
+    image: "https://fluxoconsultoria.poli.ufrj.br/wp-content/uploads/2015/07/scrum-palestra-banner-768x411.png",
+    descricao: "O curso de Introdução a Metodologia Àgil tem como objetivo"
+},{
+    nome: "Introdução a Lógica de Programação",
+    image: "https://www.brasilcode.com.br/wp-content/uploads/2020/09/Logica-de-programacao-1024x427.png",
+    descricao: "O curso de Introdução a Lógica de Programação tem como objetivo"
 }]
 
 try {

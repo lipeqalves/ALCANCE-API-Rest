@@ -37,6 +37,12 @@ class DatabaseAlunoMetodos extends DAO {
         return response;
     }
 
+    static async listarAlunosPorId(email) {
+        const query = `SELECT * FROM alunos WHERE email = ?`;
+        const response = await this.listarPorId(email, query);
+        return response;
+    }
+
 
     static async adicionaAluno(aluno) {
         const query = `INSERT INTO alunos (nome, email, telefone, estado, unidade, curso) VALUES (?,?,?,?,?,?)`

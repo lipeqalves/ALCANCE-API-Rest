@@ -63,6 +63,18 @@ class DAO {
         })
     }
 
+    static listarPorId(email, query) {
+        return new Promise((resolve, reject) => {
+            Database.get(query, email, (e, resultado) => {
+                if (e) {
+                    reject(e.message)
+                } else {
+                    resolve(resultado)
+                }
+            })
+        })
+    }
+
     static atualizaPorId(entidade, id, query) {
         const body = Object.values(entidade)
         return new Promise((resolve, reject) => {

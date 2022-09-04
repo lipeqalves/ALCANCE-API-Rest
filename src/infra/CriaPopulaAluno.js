@@ -3,35 +3,39 @@ import DatabaseAlunoMetodos from "../DAO/DatabaseAlunoMetodos.js";
 const alunos = [
     {
         nome: "Filipe",
-        email: "aluno@test.br",
+        email: "filipe@test.com.br",
         telefone: "8199999999",
-        estada: "PE",
-        unidade: "Recife",
-        curso: "Informática Avançada"
+        
+        unidade: "Unidade Pernambuco",
+        curso: "Introdução a Lógica de Programação",
+        _senha:"123456"
     },
     {
         nome: "Juliana",
-        email: "aluno@test.br",
+        email: "juliana@test.com.br",
         telefone: "8199999999",
-        estada: "PE",
-        unidade: "Recife",
-        curso: "Informática Básica"
+        
+        unidade: "Unidade Santa Catarina",
+        curso: "Inglês básico ao avançado",
+        _senha:"123456"
     },
     {
         nome: "Roberta",
-        email: "aluno@test.br",
+        email: "roberta@test.com.br",
         telefone: "8199999999",
-        estada: "PE",
-        unidade: "Recife",
-        curso: "Informática intermediária"
+        
+        unidade: "Unidade Rio de Janeiro",
+        curso: "Excel básico ao avançado",
+        _senha:"123456" 
     },
     {
         nome: "Carme",
         email: "aluno@test.br",
         telefone: "8199999999",
-        estada: "PE",
-        unidade: "Recife",
-        curso: "Informática intermediária"
+        
+        unidade: "Unidade São Paulo",
+        curso: "Introdução a Metodologia Àgil",
+        _senha:"123456" 
     }
 ]
 

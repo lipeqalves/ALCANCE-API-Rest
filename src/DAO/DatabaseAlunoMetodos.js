@@ -12,9 +12,9 @@ class DatabaseAlunoMetodos extends DAO {
             nome VARCHAR,
             email  VARCHAR,
             telefone VARCHAR,
-            estado VARCHAR,
             unidade VARCHAR,
-            curso VARCHAR
+            curso VARCHAR,
+            _senha VARCHAR
         )`
         const response = await this.createTable(query);
         return response
@@ -45,13 +45,13 @@ class DatabaseAlunoMetodos extends DAO {
 
 
     static async adicionaAluno(aluno) {
-        const query = `INSERT INTO alunos (nome, email, telefone, estado, unidade, curso) VALUES (?,?,?,?,?,?)`
+        const query = `INSERT INTO alunos (nome, email, telefone, unidade, curso, _senha) VALUES (?,?,?,?,?,?)`
         const response = await this.inserir(aluno, query)
         return response;
     }
     
     static async atualizaAluno(id, aluno) {
-        const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?,estado = ?, unidade = ?, curso= ?  WHERE ID = ? `
+        const query = `UPDATE alunos SET nome = ?, email = ?, telefone = ?, unidade = ?, curso= ?, _senha=? WHERE ID = ? `
         const response = await this.atualizaPorId(aluno, id, query)
         return response;
     }

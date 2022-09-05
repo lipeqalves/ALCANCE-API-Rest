@@ -37,9 +37,9 @@ class DatabaseAlunoMetodos extends DAO {
         return response;
     }
 
-    static async listarAlunosPorId(email) {
+    static async listarAlunosPorEmail(email) {
         const query = `SELECT * FROM alunos WHERE email = ?`;
-        const response = await this.listarPorId(email, query);
+        const response = await this.listarPorEmail(email, query);
         return response;
     }
 

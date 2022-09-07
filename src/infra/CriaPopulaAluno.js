@@ -5,7 +5,6 @@ const alunos = [
         nome: "Filipe",
         email: "filipe@test.com.br",
         telefone: "8199999999",
-        
         unidade: "Unidade Pernambuco",
         curso: "Introdução a Lógica de Programação",
         _senha:"123456"
@@ -14,7 +13,6 @@ const alunos = [
         nome: "Juliana",
         email: "juliana@test.com.br",
         telefone: "8199999999",
-        
         unidade: "Unidade Santa Catarina",
         curso: "Inglês básico ao avançado",
         _senha:"123456"
@@ -23,7 +21,6 @@ const alunos = [
         nome: "Roberta",
         email: "roberta@test.com.br",
         telefone: "8199999999",
-        
         unidade: "Unidade Rio de Janeiro",
         curso: "Excel básico ao avançado",
         _senha:"123456" 

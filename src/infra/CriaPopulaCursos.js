@@ -1,24 +1,16 @@
 import DatabaseCursosMetodos from "../DAO/DatabaseCursosMetodos.js"
 
-const cursos = [{
-    nome: "Inglês básico ao avançado",
-    image: "https://inglesbasico.com.br/wp-content/uploads/2020/04/aprenda_ingles_online_ingles_basico.jpg",
-    descricao: "O curso de Inglês básico ao avançado tem como objetivo"
-}, {
+const cursos = [ {
     nome: "Excel básico ao avançado ",
-    image: "https://realedados.com.br/wp-content/uploads/2020/02/excel.jpg",
+    image: 'https://api.iconify.design/ri/file-excel-2-line.svg',
     descricao: "O curso de Excel básico ao avançado tem como objetivo"
 },{
-    nome: "Informatica básica",
-    image: "https://escolalbk.com.br/wp-content/uploads/2021/10/Informatica-Basica-1024x1024.jpg",
+    nome: "Introdução Informatica básica",
+    image: 'https://api.iconify.design/heroicons-outline/desktop-computer.svg',
     descricao: "O curso de Informatica básica tem como objetivo"
 }, {
-    nome: "Introdução a Metodologia Àgil",
-    image: "https://miro.medium.com/max/1400/1*BIWWVh_1g7g_ZBC7XNrWQg.jpeg",
-    descricao: "O curso de Introdução a Metodologia Àgil tem como objetivo"
-},{
     nome: "Introdução a Lógica de Programação",
-    image: "https://www.brasilcode.com.br/wp-content/uploads/2020/09/Logica-de-programacao-1024x427.png",
+    image: "https://api.iconify.design/fa-solid/laptop-code.svg",
     descricao: "O curso de Introdução a Lógica de Programação tem como objetivo"
 }]
 

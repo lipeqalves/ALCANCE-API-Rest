@@ -1,17 +1,17 @@
 import DatabaseCursosMetodos from "../DAO/DatabaseCursosMetodos.js"
 
 const cursos = [ {
-    nome: "Excel básico ao avançado ",
+    nome: "Excel",
     image: 'https://api.iconify.design/ri/file-excel-2-line.svg',
-    descricao: "O curso de Excel básico ao avançado tem como objetivo"
+    descricao: "Aprenda Excel de forma completa e aplique seus conhecimentos construindo uma ferramenta avançada"
 },{
-    nome: "Introdução Informatica básica",
+    nome: "Informática",
     image: 'https://api.iconify.design/heroicons-outline/desktop-computer.svg',
-    descricao: "O curso de Informatica básica tem como objetivo"
+    descricao: "Aprenda a explorar os diversos recursos da tecnologia e mantenha-se atualizado com o dinâmico mundo da informática."
 }, {
-    nome: "Introdução a Lógica de Programação",
+    nome: "Lógica de Programação",
     image: "https://api.iconify.design/fa-solid/laptop-code.svg",
-    descricao: "O curso de Introdução a Lógica de Programação tem como objetivo"
+    descricao: "Treine sua mente para programar algoritmos sem dificuldades através de desafios práticos"
 }]
 
 try {

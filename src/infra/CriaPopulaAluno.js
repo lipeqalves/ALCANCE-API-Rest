@@ -7,7 +7,10 @@ const alunos = [
         telefone: "8199999999",
         unidade: "Unidade Pernambuco",
         curso: "Introdução a Lógica de Programação",
-        _senha:"123456"
+        senha:"123456",
+        cep: "53530490",
+        endereco:"rua resilia, n 18, resilia ",
+        cidade: "resiliente",
     },
     {
         nome: "Juliana",
@@ -15,7 +18,10 @@ const alunos = [
         telefone: "8199999999",
         unidade: "Unidade Santa Catarina",
         curso: "Inglês básico ao avançado",
-        _senha:"123456"
+        senha:"123456",
+        cep: "53530490",
+        endereco:"rua resilia, n 18, resilia ",
+        cidade: "resiliente",
     },
     {
         nome: "Roberta",
@@ -23,16 +29,21 @@ const alunos = [
         telefone: "8199999999",
         unidade: "Unidade Rio de Janeiro",
         curso: "Excel básico ao avançado",
-        _senha:"123456" 
+        senha:"123456" ,
+        cep: "53530490",
+        endereco:"rua resilia, n 18, resilia ",
+        cidade: "resiliente",
     },
     {
         nome: "Carme",
         email: "aluno@test.br",
         telefone: "8199999999",
-        
         unidade: "Unidade São Paulo",
         curso: "Introdução a Metodologia Àgil",
-        _senha:"123456" 
+        senha:"123456" ,
+        cep: "53530490",
+        endereco:"rua resilia, n 18, resilia ",
+        cidade: "resiliente",
     }
 ]
 
